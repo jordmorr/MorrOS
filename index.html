@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MorrOS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Boot screen -->
+    <div class="screen screen-boot" id="boot-screen">
+      <div class="screen-inner boot-inner">
+        <div class="boot-title">Booting into MorrOS</div>
+        <div class="boot-bar-outer">
+          <div class="boot-bar-inner" id="boot-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop / “OS” -->
+    <div class="desktop hidden" id="desktop">
+      <div class="desktop-inner">
+        <div class="modal-overlay hidden" id="welcome-modal">
+          <article class="window modal-window">
+            <header class="window-header">
+              <span>WELCOME</span>
+            </header>
+            <div class="window-body" style="text-align: center;">
+              <p>Welcome to MorrOS</p>
+              <p>Home of polymath Dr. Jordan Morris</p>
+              <p>Please feel free to explore</p>
+              <button class="dock-item modal-ok" id="welcome-ok">OK</button>
+            </div>
+          </article>
+        </div>
+
+        <header class="top-bar">
+          <div class="top-bar-left">
+            <span class="logo">MorrOS</span>
+            <span class="top-item" data-window="about-window">About</span>
+            <span class="top-item" data-window="education-window">Education</span>
+            <span class="top-item" data-window="projects-window">Projects</span>
+            <span class="top-item" data-window="publications-window">Publications</span>
+            <span class="top-item" data-window="skills-window">Skills</span>
+          </div>
+          <div class="top-bar-right">
+            <div class="top-icons">
+              <a href="mailto:jordan@jordanmorris.co.uk" class="top-icon" title="Email" aria-label="Email Jordan Morris">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/jordan-morris-a26298294/" target="_blank" rel="noopener" class="top-icon" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://www.researchgate.net/profile/Jordan-Morris-4" target="_blank" rel="noopener" class="top-icon" title="ResearchGate" aria-label="ResearchGate">
+                <i class="fa-brands fa-researchgate"></i>
+              </a>
+              <a href="https://github.com/jordmorr" target="_blank" rel="noopener" class="top-icon" title="GitHub" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.credly.com/users/jordan-morris.b3f1a848/badges" target="_blank" rel="noopener" class="top-icon" title="Credly" aria-label="Credly Badges">
+                <i class="fa-solid fa-c"></i>
+              </a>
+              <a href="https://scholar.google.com/citations?user=BD4R4tYAAAAJ" target="_blank" rel="noopener" class="top-icon" title="Google Scholar" aria-label="Google Scholar">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
+              <a href="https://www.ncl.ac.uk/engineering/staff/profile/jordanmorris.html" target="_blank" rel="noopener" class="top-icon" title="Newcastle University" aria-label="Newcastle University Profile">
+                <i class="fa-solid fa-school"></i>
+              </a>
+            </div>
+            <span class="top-clock" id="top-clock"></span>
+          </div>
+        </header>
+
+        <main class="desktop-main">
+          <section class="windows-area">
+            
+            <!-- ABOUT (already open by default) -->
+            <article class="window" id="about-window">
+              <header class="window-header">
+                <span>ABOUT.md</span>
+                <button class="btn-close" data-close>&times;</button>
+              </header>
+
+              <div class="window-body">
+                <div class="about-card">
+                  <div class="about-image">
+                    <video
+                      id="profile-video"
+                      src="images/profile.mp4"
+                      poster="images/profile.jpg"
+                      preload="auto"
+                      playsinline
+                      muted
+                    ></video>
+                  </div>
+
+                  <div class="about-content">
+                    <p class="name-title"><strong>Dr. Jordan Morris</strong></p>
+                    <p>
+                      <span class="highlight-role">AI Guru</span> | 
+                      <span class="highlight-role">ASIC Designer</span> | 
+                      <span class="highlight-role">Electronic Engineer</span> | 
+                      <span class="highlight-role">Software Dev </span> |
+                      <span class="highlight-role">DevOps</span> |
+                      <span class="highlight-role">Full Stack</span>
+                    </p>
+
+                    <p>
+                      <span class="location">Bay Area, California, USA</span> •
+                      Dual-National (British/Irish) with US Green Card (EB-1A Visa)
+                    </p>
+
+                    <p>
+                      25+ years programming experience in various languages
+                      (C/C++, Python, TypeScript) 
+                      and 13+ years ASIC hardware design 
+                      (Cadence &amp; Synopsys flows, 
+                      Calibre) mainly digital, but some analog.
+                      Speciality skills include asynchronous logic design, 
+                      subthreshold design and physical modelling.
+                    </p>
+
+                    <p>
+                      8+ years experience working in AI research, principally focused
+                      on novel bitwise AI architectures.
+                    </p>
+
+                    <p>
+                      I started web development by learning HTML using Dreamweaver,
+                      LAMP stacks, Flash and ActionScript in my teens and have
+                      remained up to date with the topic ever since.
+                    </p>
+
+                    <p>
+                      Currently in love with Agentic AI.
+                    </p>
+
+
+                    <p>
+                      <strong>Contact:</strong>
+                      <a href="mailto:jordan@jordanmorris.co.uk">
+                        jordan@jordanmorris.co.uk
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- EDUCATION (open by default) -->
+            <article class="window" id="education-window">
+              <header class="window-header">
+                <span>EDUCATION.md</span>
+                <button class="btn-close" data-close>&times;</button>
+              </header>
+              <div class="window-body">
+                <p><strong class="section-title">Education – Newcastle University, UK</strong></p>
+                
+                <div class="education-columns">
+                  <div class="education-column">
+                    <span class="degree">PhD – VLSI Design and Semiconductor Physics</span>
+                    <p>iCase award (Sponsored PhD)</p>
+                    <p>Served at Arm HQ, Cambridge UK</p>
+                    <p>Applied Silicon Research Team</p>
+                    <p>(Small 9-man research group with 3 of the original 12 founders)</p>
+                    <p><a href="https://www.researchgate.net/publication/332819889_A_Novel_Deep_Submicron_Bulk_Planar_Sizing_Strategy_For_Low_Energy_Subthreshold_Standard_Cell_Libraries" target="_blank" class="paper-title">Thesis</a></p>
+                    <p class="date">2013 – 2018</p>
+                  </div>
+
+                  <div class="education-column">
+                    <span class="degree">MEng – Electrical and Electronic Engineering</span>
+                    <p>summa cum laude</p>
+                    <p>with first class honours</p>
+                    <p class="date">2012 – 2013</p>
+                  </div>
+
+                  <div class="education-column">
+                    <span class="degree">BEng – Electrical and Electronic Engineering</span>
+                    <p class="date">2009 – 2012</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECTS (open by default) -->
+            <article class="window" id="projects-window">
+              <header class="window-header">
+                <span>PROJECTS.md</span>
+                <button class="btn-close" data-close>&times;</button>
+              </header>
+              <div class="window-body">
+                <p><strong class="section-title">Projects</strong></p>
+                <div class="projects-columns">
+                  <div class="project-column">
+                    <a href="https://www.bitset.ai/" target="_blank">
+                      <img src="images/bitset.png" alt="Bitset Technologies" class="project-logo">
+                    </a>
+                    <h3><a href="https://www.bitset.ai/" target="_blank">Bitset Technologies</a></h3>
+                    <p class="role">Founder and CTO</p>
+                    <p class="date">Aug 2024 – Jan 2026</p>
+                  </div>
+                  <div class="project-column">
+                    <a href="https://www.literal-labs.ai" target="_blank">
+                      <img src="images/literal-labs.png" alt="Literal Labs" class="project-logo">
+                    </a>
+                    <h3><a href="https://www.literal-labs.ai" target="_blank">Literal Labs</a></h3>
+                    <p class="role">Principal Engineer</p>
+                    <p class="date">Jun 2023 – Jan 2024</p>
+                  </div>
+                  <div class="project-column">
+                    <a href="http://poets-project.org/" target="_blank">
+                      <img src="images/POETS-logo.svg" alt="POETS" class="project-logo">
+                    </a>
+                    <h3><a href="http://poets-project.org/" target="_blank">POETS</a></h3>
+                    <p class="role">Research Associate</p>
+                    <p class="date">Aug 2019 – May 2023</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- PUBLICATIONS (open by default) -->
+            <article class="window" id="publications-window">
+              <header class="window-header">
+                <span>PUBLICATIONS.txt</span>
+                <button class="btn-close" data-close>&times;</button>
+              </header>
+              <div class="window-body">
+                <p><strong class="section-title">Publications</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> <a href="https://arxiv.org/abs/2403.09680" target="_blank" class="paper-title">Pre-Sorted Tsetlin Machine (The Genetic K-Medoid Method)</a><br>
+                    J. Morris, A. Yakovlev, Pre-Print, ISTM (International Symposium on the Tsetlin Machine), 2024</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/375105235_An_Event-Driven_Approach_to_Genotype_Imputation_on_a_Custom_RISC-V_Cluster" target="_blank" class="paper-title">An Event Driven Approach To Genotype Imputation On A RISC-V Cluster</a><br>
+                    J. Morris, A. Rafiev, G. Bragg, M. Vousden, D. B. Thomas, A. Yakovlev, A. D. Brown, IEEE Transactions on Computational Biology and Bioinformatics, 2023</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/366428042_Event-based_high_throughput_computing_A_series_of_case_studies_on_a_massively_parallel_softcore_machine" target="_blank" class="paper-title">Event-based High Throughput Computing: A Series of Case Studies on a Massively Parallel Softcore Machine</a><br>
+                    M. Vousden, J. Morris, G. M. Bragg, J. Beaumont, A. Rafiev, W. Luk, D. Thomas, A. D. Brown, IET Computers & Digital Techniques, 2022</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/362416670_A_Subthreshold_Layout_Strategy_for_Faster_and_Lower_Energy_Complex_Digital_Circuits" target="_blank" class="paper-title">A Subthreshold Layout Strategy for Faster and Lower Energy Complex Digital Circuits</a><br>
+                    J. Morris, P. Prabhat, J. Myers, A. Yakovlev, Journal of Low Power Electronics and Applications 12, no. 3: 43, 2022</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/361462342_An_Alternate_Feedback_Mechanism_for_Tsetlin_Machines_on_Parallel_Architectures" target="_blank" class="paper-title">An Alternate Feedback Mechanism for Tsetlin Machines on Parallel Architectures</a><br>
+                    J. Morris, A. Rafiev, F. Xia, R. Shafik, A. Yakovlev, O. C. Granmo, A. D. Brown, 2022 IEEE International Symposium on Tsetlin Machines, Grimstadt</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/362469851_Visualization_of_Machine_Learning_Dynamics_in_Tsetlin_Machines" target="_blank" class="paper-title">Visualization of Machine Learning Dynamics in Tsetlin Machines</a><br>
+                    A. Rafiev, J. Morris, F. Xia, R. Shafik, A. Yakovlev, O. C. Granmo, A. D. Brown, 2022 IEEE International Symposium on Tsetlin Machines, Grimstadt</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/360053677_Practical_Distributed_Implementation_of_Very_Large_Scale_Petri_Net_Simulations" target="_blank" class="paper-title">Practical Distributed Implementation of Very Large Scale Petri Net Simulations</a><br>
+                    A. Rafiev, J. Morris, F. Xia, A. Yakovlev, M. Naylor, S. Moore, D. B. Thomas, G. M. Bragg, M. Vousden, A. D. Brown, In: Koutny, M., Kordon, F., Moldt, D. (eds) Transactions on Petri Nets and Other Models of Concurrency XVI. Lecture Notes in Computer Science, vol 13220. Springer, Berlin, Heidelberg</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/354111561_Low-Latency_Asynchronous_Logic_Design_for_Inference_at_the_Edge" target="_blank" class="paper-title">Low-Latency Asynchronous Logic Design for Inference at the Edge</a><br>
+                    A. Wheeldon, A. Yakovlev, R. Shafik and J. Morris, Design, Automation & Test in Europe Conference & Exhibition (DATE), 2021, pp. 370-373</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/332161368_Self-timed_minimum_latency_circuits_for_the_internet_of_things" target="_blank" class="paper-title">Self-timed, Minimum Latency Circuits for the Internet of Things</a><br>
+                    A. Wheeldon, J. Morris, D. Sokolov, A. Yakovlev, Integration 2019, 69, 138-146</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/318665805_Unconventional_Layout_Techniques_for_a_High_Performance_Low_Variability_Subthreshold_Standard_Cell_Library" target="_blank" class="paper-title">Unconventional Layout Techniques for a High Performance, Low Variability Subthreshold Standard Cell Library</a><br>
+                    J. Morris, P. Prabhat, J. Myers and A. Yakovlev, 2017 IEEE Computer Society Annual Symposium on VLSI (ISVLSI), Bochum, 2017, pp. 19-24</li>
+                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/321111897_Power_proportional_adder_design_for_Internet_of_Things_in_a_65_nm_process" target="_blank" class="paper-title">Power-Proportional Adder Design for Internet of Things in a 65nm Process</a><br>
+                    A. Wheeldon, J. Morris, D. Sokolov and A. Yakovlev, 2017 27th International Symposium on Power and Timing Modeling, Optimization and Simulation (PATMOS), Thessaloniki, 2017, pp. 1-6.</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- SKILLS (open by default) -->
+            <article class="window" id="skills-window">
+              <header class="window-header">
+                <span>SKILLS.txt</span>
+                <button class="btn-close" data-close>&times;</button>
+              </header>
+              <div class="window-body">
+                <p><strong class="section-title">AI Skills</strong></p>
+                
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Tensorflow (+lite)</li>
+                  <li><span class="bullet">▸</span> PyTorch</li>
+                  <li><span class="bullet">▸</span> Keras</li>
+                  <li><span class="bullet">▸</span> Agentic AI</li>
+                  <li><span class="bullet">▸</span> MCP</li>
+                  <li><span class="bullet">▸</span> LLM Fine-Tuning</li>
+                </ul>
+
+                <p><strong class="section-title">Software Skills</strong></p>
+                
+                <p><strong>Recent Experience</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Typescript/Javascript</li>
+                  <li><span class="bullet">▸</span> C</li>
+                  <li><span class="bullet">▸</span> C++</li>
+                  <li><span class="bullet">▸</span> Python</li>
+                  <li><span class="bullet">▸</span> Bash</li>
+                  <li><span class="bullet">▸</span> CUDA</li>
+                  <li><span class="bullet">▸</span> MPI</li>
+                </ul>
+
+                <p><strong>Previous Experience</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> .NET</li>
+                  <li><span class="bullet">▸</span> Visual Basic</li>
+                  <li><span class="bullet">▸</span> Java</li>
+                </ul>
+
+                <p class="line spacer"></p>
+
+                <p><strong class="section-title">Hardware Skills</strong></p>
+                
+                <p><strong>Languages</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Verilog/SystemVerilog</li>
+                  <li><span class="bullet">▸</span> VHDL</li>
+                </ul>
+
+                <p><strong>Cadence Digital ASIC Flow</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Xcelium</li>
+                  <li><span class="bullet">▸</span> Genus</li>
+                  <li><span class="bullet">▸</span> Innovus</li>
+                  <li><span class="bullet">▸</span> Tempus</li>
+                  <li><span class="bullet">▸</span> Voltus</li>
+                  <li><span class="bullet">▸</span> Joules</li>
+                  <li><span class="bullet">▸</span> Quantus</li>
+                  <li><span class="bullet">▸</span> Pegasus</li>
+                  <li><span class="bullet">▸</span> Conformal</li>
+                  <li><span class="bullet">▸</span> JasperGold</li>
+                </ul>
+
+                <p><strong>Cadence Analog ASIC Flow</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Virtuoso</li>
+                  <li><span class="bullet">▸</span> ADEXL</li>
+                  <li><span class="bullet">▸</span> Spectre</li>
+                </ul>
+
+                <p><strong>Synopsys Digital ASIC Flow</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> VCS</li>
+                  <li><span class="bullet">▸</span> Design Compiler</li>
+                  <li><span class="bullet">▸</span> IC Compiler</li>
+                  <li><span class="bullet">▸</span> PrimeTime</li>
+                </ul>
+
+                <p><strong>Physical ASIC Design</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> HSpice</li>
+                  <li><span class="bullet">▸</span> SiliconSmart</li>
+                  <li><span class="bullet">▸</span> Liberate</li>
+                </ul>
+
+                <p><strong>FPGA Design</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Xilinx Vivado</li>
+                  <li><span class="bullet">▸</span> Intel Quartus</li>
+                </ul>
+
+                <p><strong>Niche Skills</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> Asynchronous Logic Design</li>
+                  <li><span class="bullet">▸</span> Subthreshold Physics</li>
+                </ul>
+
+                <p class="line spacer"></p>
+
+                <p><strong class="section-title">Web Development Skills</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> MERN Stack</li>
+                  <li><span class="bullet">▸</span> Next.js</li>
+                  <li><span class="bullet">▸</span> SQL</li>
+                  <li><span class="bullet">▸</span> Tailwind</li>
+                  <li><span class="bullet">▸</span> Sass</li>
+                </ul>
+
+                <p class="line spacer"></p>
+
+                <p><strong class="section-title">External Development Courses</strong></p>
+                <ul class="project-list">
+                  <li><span class="bullet">▸</span> <span class="course-year">2023</span> - Hardware-Efficient Machine Learning | <span class="course-length">2 days</span> | <span class="course-location">IMEC Academy, Leuven</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2019</span> - Comprehensive Digital IC Implementation and Sign-Off (using Cadence Tools) | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2018</span> - Advanced Low Power Digital IC Implementation (using Cadence Tools) | <span class="course-length">3 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2017</span> - Real Time Software Design with UML | <span class="course-length">5 days</span> | <span class="course-location">Feabhas Onsite</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2017</span> - Advanced C Programming | <span class="course-length">5 days</span> | <span class="course-location">Feabhas Onsite</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Introduction to FPGA Design using Xilinx Vivado Tools | <span class="course-length">2 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Introduction to FPGA Design using Altera Quartus II | <span class="course-length">2 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Verilog and System Verilog for Design | <span class="course-length">4 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Comprehensive Digital IC Implementation and Sign-Off (using Synopsys Tools) | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2014</span> - Introduction to Analogue and Mixed Signal IC Design | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2014</span> - Introduction to Technology CAD using Synopsys Sentaurus TCAD Tools | <span class="course-length">3 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2014</span> - Mixed Signal IC Design and Implementation | <span class="course-length">4 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li><span class="bullet">▸</span> <span class="course-year">2013</span> - Analog IC Design, Simulation, Layout and Verification | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                </ul>
+              </div>
+            </article>
+
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
