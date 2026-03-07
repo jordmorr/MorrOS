@@ -1,10 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MorrOS</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -26,7 +32,7 @@
             <header class="window-header">
               <span>WELCOME</span>
             </header>
-            <div class="window-body" style="text-align: center;">
+            <div class="window-body" style="text-align: center">
               <p>Welcome to MorrOS</p>
               <p>Home of polymath Dr. Jordan Morris</p>
               <p>Please feel free to explore</p>
@@ -39,37 +45,105 @@
           <div class="top-bar-left">
             <span class="logo">MorrOS</span>
             <span class="top-item" data-window="about-window">About</span>
-            <span class="top-item" data-window="education-window">Education</span>
+            <span class="top-item" data-window="education-window"
+              >Education</span
+            >
             <span class="top-item" data-window="projects-window">Projects</span>
-            <span class="top-item" data-window="publications-window">Publications</span>
+            <span class="top-item" data-window="publications-window"
+              >Publications</span
+            >
             <span class="top-item" data-window="skills-window">Skills</span>
           </div>
           <div class="top-bar-right">
             <div class="top-icons">
-              <a href="mailto:jordan@jordanmorris.co.uk" class="top-icon" title="Email" aria-label="Email Jordan Morris">
+              <a
+                href="mailto:jordan@jordanmorris.co.uk"
+                class="top-icon"
+                title="Email"
+                aria-label="Email Jordan Morris"
+              >
                 <i class="fa-regular fa-envelope"></i>
               </a>
-              <a href="https://www.linkedin.com/in/jordan-morris-a26298294/" target="_blank" rel="noopener" class="top-icon" title="LinkedIn" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/jordan-morris-a26298294/"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="LinkedIn"
+                aria-label="LinkedIn"
+              >
                 <i class="fa-brands fa-linkedin"></i>
               </a>
-              <a href="https://www.researchgate.net/profile/Jordan-Morris-4" target="_blank" rel="noopener" class="top-icon" title="ResearchGate" aria-label="ResearchGate">
+              <a
+                href="https://www.researchgate.net/profile/Jordan-Morris-4"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="ResearchGate"
+                aria-label="ResearchGate"
+              >
                 <i class="fa-brands fa-researchgate"></i>
               </a>
-               <a href="https://github.com/jordmorr" target="_blank" rel="noopener" class="top-icon" title="GitHub" aria-label="GitHub">
-                 <i class="fa-brands fa-github"></i>
-               </a>
-               <a href="https://huggingface.co/jordmorr" target="_blank" rel="noopener" class="top-icon" title="Hugging Face" aria-label="Hugging Face">
-                 <svg width="1.25em" height="1.25em" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M16.781 3.277c2.997 1.704 4.844 4.851 4.844 8.258 0 .995-.155 1.955-.443 2.857a1.332 1.332 0 011.125.4 1.41 1.41 0 01.2 1.723c.204.165.352.385.428.632l.017.062c.06.222.12.69-.2 1.166.244.37.279.836.093 1.236-.255.57-.893 1.018-2.128 1.5l-.202.078-.131.048c-.478.173-.89.295-1.061.345l-.086.024c-.89.243-1.808.375-2.732.394-1.32 0-2.3-.36-2.923-1.067a9.852 9.852 0 01-3.18.018C9.778 21.647 8.802 22 7.494 22a11.249 11.249 0 01-2.541-.343l-.221-.06-.273-.08a16.574 16.574 0 01-1.175-.405c-1.237-.483-1.875-.93-2.13-1.501-.186-.4-.151-.867.093-1.236a1.42 1.42 0 01-.2-1.166c.069-.273.226-.516.447-.694a1.41 1.41 0 01.2-1.722c.233-.248.557-.391.917-.407l.078-.001a9.385 9.385 0 01-.44-2.85c0-3.407 1.847-6.554 4.844-8.258a9.822 9.822 0 019.687 0zM4.188 14.758c.125.687 2.357 2.35 2.14 2.707-.19.315-.796-.239-.948-.386l-.041-.04-.168-.147c-.561-.479-2.304-1.9-2.74-1.432-.43.46.119.859 1.055 1.42l.784.467.136.083c1.045.643 1.12.84.95 1.113-.188.295-3.07-2.1-3.34-1.083-.27 1.011 2.942 1.304 2.744 2.006-.2.7-2.265-1.324-2.685-.537-.425.79 2.913 1.718 2.94 1.725l.16.04.175.042c1.227.284 3.565.65 4.435-.604.673-.973.64-1.709-.248-2.61l-.057-.057c-.945-.928-1.495-2.288-1.495-2.288l-.017-.058-.025-.072c-.082-.22-.284-.639-.63-.584-.46.073-.798 1.21.12 1.933l.05.038c.977.721-.195 1.21-.573.534l-.058-.104-.143-.25c-.463-.799-1.282-2.111-1.739-2.397-.532-.332-.907-.148-.782.541zm14.842-.541c-.533.335-1.563 2.074-1.94 2.751a.613.613 0 01-.687.302.436.436 0 01-.176-.098.303.303 0 01-.049-.06l-.014-.028-.008-.02-.007-.019-.003-.013-.003-.017a.289.289 0 01-.004-.048c0-.12.071-.266.25-.427.026-.024.054-.047.084-.07l.047-.036c.022-.016.043-.032.063-.049.883-.71.573-1.81.131-1.917l-.031-.006-.056-.004a.368.368 0 00-.062.006l-.028.005-.042.014-.039.017-.028.015-.028.019-.036.027-.023.02c-.173.158-.273.428-.31.542l-.016.054s-.53 1.309-1.439 2.234l-.054.054c-.365.358-.596.69-.702 1.018-.143.437-.066.868.21 1.353.055.097.117.195.187.296.882 1.275 3.282.876 4.494.59l.286-.07.25-.074c.276-.084.736-.233 1.2-.42l.188-.077.065-.028.064-.028.124-.056.081-.038c.529-.252.964-.543.994-.827l.001-.036a.299.299 0 00-.037-.139c-.094-.176-.271-.212-.491-.168l-.045.01c-.044.01-.09.024-.136.04l-.097.035-.054.022c-.559.23-1.238.705-1.607.745h.006a.452.452 0 01-.05.003h-.024l-.024-.003-.023-.005c-.068-.016-.116-.06-.14-.142a.22.22 0 01-.005-.1c.062-.345.958-.595 1.713-.91l.066-.028c.528-.224.97-.483.985-.832v-.04a.47.47 0 00-.016-.098c-.048-.18-.175-.251-.36-.251-.785 0-2.55 1.36-2.92 1.36-.025 0-.048-.007-.058-.024a.6.6 0 01-.046-.088c-.1-.238.068-.462 1.06-1.066l.209-.126c.538-.32 1.01-.588 1.341-.831.29-.212.475-.406.503-.6l.003-.028c.008-.113-.038-.227-.147-.344a.266.266 0 00-.07-.054l-.034-.015-.013-.005a.403.403 0 00-.13-.02c-.162 0-.369.07-.595.18-.637.313-1.431.952-1.826 1.285l-.249.215-.033.033c-.08.078-.288.27-.493.386l-.071.037-.041.019a.535.535 0 01-.122.036h.005a.346.346 0 01-.031.003l.01-.001-.013.001c-.079.005-.145-.021-.19-.095a.113.113 0 01-.014-.065c.027-.465 2.034-1.991 2.152-2.642l.009-.048c.1-.65-.271-.817-.791-.493zM11.938 2.984c-4.798 0-8.688 3.829-8.688 8.55 0 .692.083 1.364.24 2.008l.008-.009c.252-.298.612-.46 1.017-.46.355.008.699.117.993.312.22.14.465.384.715.694.261-.372.69-.598 1.15-.605.852 0 1.367.728 1.562 1.383l.047.105.06.127c.192.396.595 1.139 1.143 1.68 1.06 1.04 1.324 2.115.8 3.266a8.865 8.865 0 002.024-.014c-.505-1.12-.26-2.17.74-3.186l.066-.066c.695-.684 1.157-1.69 1.252-1.912.195-.655.708-1.383 1.56-1.383.46.007.889.233 1.15.605.25-.31.495-.553.718-.694a1.87 1.87 0 01.99-.312c.357 0 .682.126.925.36.14-.61.215-1.245.215-1.898 0-4.722-3.89-8.55-8.687-8.55zm1.857 8.926l.439-.212c.553-.264.89-.383.89.152 0 1.093-.771 3.208-3.155 3.262h-.184c-2.325-.052-3.116-2.06-3.156-3.175l-.001-.087c0-1.107 1.452.586 3.25.586.716 0 1.379-.272 1.917-.526zm4.017-3.143c.45 0 .813.358.813.8 0 .441-.364.8-.813.8a.806.806 0 01-.812-.8c0-.442.364-.8.812-.8zm-11.624 0c.448 0 .812.358.812.8 0 .441-.364.8-.812.8a.806.806 0 01-.813-.8c0-.442.364-.8.813-.8zm7.79-.841c.32-.384.846-.54 1.33-.394.483.146.83.564.878 1.06.048.495-.212.97-.659 1.203-.322.168-.447-.477-.767-.585l.002-.003c-.287-.098-.772.362-.925.079a1.215 1.215 0 01.14-1.36zm-4.323 0c.322.384.377.92.14 1.36-.152.283-.64-.177-.925-.079l.003.003c-.108.036-.194.134-.273.24l-.118.165c-.11.15-.22.262-.377.18a1.226 1.226 0 01-.658-1.204c.048-.495.395-.913.878-1.059a1.262 1.262 0 011.33.394z" fill="currentColor"></path>
-                 </svg>
-               </a>
-               <a href="https://www.credly.com/users/jordan-morris.b3f1a848/badges" target="_blank" rel="noopener" class="top-icon" title="Credly" aria-label="Credly Badges">
-                 <i class="fa-solid fa-c"></i>
-               </a>
-              <a href="https://scholar.google.com/citations?user=BD4R4tYAAAAJ" target="_blank" rel="noopener" class="top-icon" title="Google Scholar" aria-label="Google Scholar">
+              <a
+                href="https://github.com/jordmorr"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="GitHub"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a
+                href="https://huggingface.co/jordmorr"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="Hugging Face"
+                aria-label="Hugging Face"
+              >
+                <svg
+                  width="1.25em"
+                  height="1.25em"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.781 3.277c2.997 1.704 4.844 4.851 4.844 8.258 0 .995-.155 1.955-.443 2.857a1.332 1.332 0 011.125.4 1.41 1.41 0 01.2 1.723c.204.165.352.385.428.632l.017.062c.06.222.12.69-.2 1.166.244.37.279.836.093 1.236-.255.57-.893 1.018-2.128 1.5l-.202.078-.131.048c-.478.173-.89.295-1.061.345l-.086.024c-.89.243-1.808.375-2.732.394-1.32 0-2.3-.36-2.923-1.067a9.852 9.852 0 01-3.18.018C9.778 21.647 8.802 22 7.494 22a11.249 11.249 0 01-2.541-.343l-.221-.06-.273-.08a16.574 16.574 0 01-1.175-.405c-1.237-.483-1.875-.93-2.13-1.501-.186-.4-.151-.867.093-1.236a1.42 1.42 0 01-.2-1.166c.069-.273.226-.516.447-.694a1.41 1.41 0 01.2-1.722c.233-.248.557-.391.917-.407l.078-.001a9.385 9.385 0 01-.44-2.85c0-3.407 1.847-6.554 4.844-8.258a9.822 9.822 0 019.687 0zM4.188 14.758c.125.687 2.357 2.35 2.14 2.707-.19.315-.796-.239-.948-.386l-.041-.04-.168-.147c-.561-.479-2.304-1.9-2.74-1.432-.43.46.119.859 1.055 1.42l.784.467.136.083c1.045.643 1.12.84.95 1.113-.188.295-3.07-2.1-3.34-1.083-.27 1.011 2.942 1.304 2.744 2.006-.2.7-2.265-1.324-2.685-.537-.425.79 2.913 1.718 2.94 1.725l.16.04.175.042c1.227.284 3.565.65 4.435-.604.673-.973.64-1.709-.248-2.61l-.057-.057c-.945-.928-1.495-2.288-1.495-2.288l-.017-.058-.025-.072c-.082-.22-.284-.639-.63-.584-.46.073-.798 1.21.12 1.933l.05.038c.977.721-.195 1.21-.573.534l-.058-.104-.143-.25c-.463-.799-1.282-2.111-1.739-2.397-.532-.332-.907-.148-.782.541zm14.842-.541c-.533.335-1.563 2.074-1.94 2.751a.613.613 0 01-.687.302.436.436 0 01-.176-.098.303.303 0 01-.049-.06l-.014-.028-.008-.02-.007-.019-.003-.013-.003-.017a.289.289 0 01-.004-.048c0-.12.071-.266.25-.427.026-.024.054-.047.084-.07l.047-.036c.022-.016.043-.032.063-.049.883-.71.573-1.81.131-1.917l-.031-.006-.056-.004a.368.368 0 00-.062.006l-.028.005-.042.014-.039.017-.028.015-.028.019-.036.027-.023.02c-.173.158-.273.428-.31.542l-.016.054s-.53 1.309-1.439 2.234l-.054.054c-.365.358-.596.69-.702 1.018-.143.437-.066.868.21 1.353.055.097.117.195.187.296.882 1.275 3.282.876 4.494.59l.286-.07.25-.074c.276-.084.736-.233 1.2-.42l.188-.077.065-.028.064-.028.124-.056.081-.038c.529-.252.964-.543.994-.827l.001-.036a.299.299 0 00-.037-.139c-.094-.176-.271-.212-.491-.168l-.045.01c-.044.01-.09.024-.136.04l-.097.035-.054.022c-.559.23-1.238.705-1.607.745h.006a.452.452 0 01-.05.003h-.024l-.024-.003-.023-.005c-.068-.016-.116-.06-.14-.142a.22.22 0 01-.005-.1c.062-.345.958-.595 1.713-.91l.066-.028c.528-.224.97-.483.985-.832v-.04a.47.47 0 00-.016-.098c-.048-.18-.175-.251-.36-.251-.785 0-2.55 1.36-2.92 1.36-.025 0-.048-.007-.058-.024a.6.6 0 01-.046-.088c-.1-.238.068-.462 1.06-1.066l.209-.126c.538-.32 1.01-.588 1.341-.831.29-.212.475-.406.503-.6l.003-.028c.008-.113-.038-.227-.147-.344a.266.266 0 00-.07-.054l-.034-.015-.013-.005a.403.403 0 00-.13-.02c-.162 0-.369.07-.595.18-.637.313-1.431.952-1.826 1.285l-.249.215-.033.033c-.08.078-.288.27-.493.386l-.071.037-.041.019a.535.535 0 01-.122.036h.005a.346.346 0 01-.031.003l.01-.001-.013.001c-.079.005-.145-.021-.19-.095a.113.113 0 01-.014-.065c.027-.465 2.034-1.991 2.152-2.642l.009-.048c.1-.65-.271-.817-.791-.493zM11.938 2.984c-4.798 0-8.688 3.829-8.688 8.55 0 .692.083 1.364.24 2.008l.008-.009c.252-.298.612-.46 1.017-.46.355.008.699.117.993.312.22.14.465.384.715.694.261-.372.69-.598 1.15-.605.852 0 1.367.728 1.562 1.383l.047.105.06.127c.192.396.595 1.139 1.143 1.68 1.06 1.04 1.324 2.115.8 3.266a8.865 8.865 0 002.024-.014c-.505-1.12-.26-2.17.74-3.186l.066-.066c.695-.684 1.157-1.69 1.252-1.912.195-.655.708-1.383 1.56-1.383.46.007.889.233 1.15.605.25-.31.495-.553.718-.694a1.87 1.87 0 01.99-.312c.357 0 .682.126.925.36.14-.61.215-1.245.215-1.898 0-4.722-3.89-8.55-8.687-8.55zm1.857 8.926l.439-.212c.553-.264.89-.383.89.152 0 1.093-.771 3.208-3.155 3.262h-.184c-2.325-.052-3.116-2.06-3.156-3.175l-.001-.087c0-1.107 1.452.586 3.25.586.716 0 1.379-.272 1.917-.526zm4.017-3.143c.45 0 .813.358.813.8 0 .441-.364.8-.813.8a.806.806 0 01-.812-.8c0-.442.364-.8.812-.8zm-11.624 0c.448 0 .812.358.812.8 0 .441-.364.8-.812.8a.806.806 0 01-.813-.8c0-.442.364-.8.813-.8zm7.79-.841c.32-.384.846-.54 1.33-.394.483.146.83.564.878 1.06.048.495-.212.97-.659 1.203-.322.168-.447-.477-.767-.585l.002-.003c-.287-.098-.772.362-.925.079a1.215 1.215 0 01.14-1.36zm-4.323 0c.322.384.377.92.14 1.36-.152.283-.64-.177-.925-.079l.003.003c-.108.036-.194.134-.273.24l-.118.165c-.11.15-.22.262-.377.18a1.226 1.226 0 01-.658-1.204c.048-.495.395-.913.878-1.059a1.262 1.262 0 011.33.394z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://www.credly.com/users/jordan-morris.b3f1a848/badges"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="Credly"
+                aria-label="Credly Badges"
+              >
+                <i class="fa-solid fa-c"></i>
+              </a>
+              <a
+                href="https://scholar.google.com/citations?user=BD4R4tYAAAAJ"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="Google Scholar"
+                aria-label="Google Scholar"
+              >
                 <i class="fa-brands fa-google-scholar"></i>
               </a>
-              <a href="https://www.ncl.ac.uk/engineering/staff/profile/jordanmorris.html" target="_blank" rel="noopener" class="top-icon" title="Newcastle University" aria-label="Newcastle University Profile">
+              <a
+                href="https://www.ncl.ac.uk/engineering/staff/profile/jordanmorris.html"
+                target="_blank"
+                rel="noopener"
+                class="top-icon"
+                title="Newcastle University"
+                aria-label="Newcastle University Profile"
+              >
                 <i class="fa-solid fa-school"></i>
               </a>
             </div>
@@ -79,7 +153,6 @@
 
         <main class="desktop-main">
           <section class="windows-area">
-            
             <!-- ABOUT (already open by default) -->
             <article class="window" id="about-window">
               <header class="window-header">
@@ -103,9 +176,9 @@
                   <div class="about-content">
                     <p class="name-title"><strong>Dr. Jordan Morris</strong></p>
                     <p>
-                      <span class="highlight-role">AI Guru</span> | 
-                      <span class="highlight-role">ASIC Designer</span> | 
-                      <span class="highlight-role">Electronic Engineer</span> | 
+                      <span class="highlight-role">AI Guru</span> |
+                      <span class="highlight-role">ASIC Designer</span> |
+                      <span class="highlight-role">Electronic Engineer</span> |
                       <span class="highlight-role">Software Dev </span> |
                       <span class="highlight-role">DevOps</span> |
                       <span class="highlight-role">Full Stack</span>
@@ -113,34 +186,32 @@
 
                     <p>
                       <span class="location">Bay Area, California, USA</span> •
-                      Dual-National (British/Irish) with US Green Card (EB-1A Visa)
+                      Dual-National (British/Irish) with US Green Card (EB-1A
+                      Visa)
                     </p>
 
                     <p>
                       25+ years programming experience in various languages
-                      (C/C++, Python, TypeScript) 
-                      and 13+ years ASIC hardware design 
-                      (Cadence &amp; Synopsys flows, 
-                      Calibre) mainly digital, but some analog.
-                      Speciality skills include asynchronous logic design, 
-                      subthreshold design and physical modelling.
+                      (C/C++, Python, TypeScript) and 13+ years ASIC hardware
+                      design (Cadence &amp; Synopsys flows, Calibre) mainly
+                      digital, but some analog. Speciality skills include
+                      asynchronous logic design, subthreshold design and
+                      physical modelling.
                     </p>
 
                     <p>
-                      8+ years experience working in AI research, principally focused
-                      on novel bitwise AI architectures.
+                      8+ years experience working in AI research, principally
+                      focused on novel bitwise AI architectures.
                     </p>
 
                     <p>
-                      I started web development by learning HTML using Dreamweaver,
-                      LAMP stacks, Flash and ActionScript in my teens and have
-                      remained up to date with the topic ever since.
+                      I started web development by learning HTML using
+                      Dreamweaver, LAMP stacks, Flash and ActionScript in my
+                      teens and have remained up to date with the topic ever
+                      since.
                     </p>
 
-                    <p>
-                      Currently in love with Agentic AI.
-                    </p>
-
+                    <p>Currently in love with Agentic AI.</p>
 
                     <p>
                       <strong>Contact:</strong>
@@ -160,28 +231,48 @@
                 <button class="btn-close" data-close>&times;</button>
               </header>
               <div class="window-body">
-                <p><strong class="section-title">Education – Newcastle University, UK</strong></p>
-                
+                <p>
+                  <strong class="section-title"
+                    >Education – Newcastle University, UK</strong
+                  >
+                </p>
+
                 <div class="education-columns">
                   <div class="education-column">
-                    <span class="degree">PhD – VLSI Design and Semiconductor Physics</span>
+                    <span class="degree"
+                      >PhD – VLSI Design and Semiconductor Physics</span
+                    >
                     <p>iCase award (Sponsored PhD)</p>
                     <p>Served at Arm HQ, Cambridge UK</p>
                     <p>Applied Silicon Research Team</p>
-                    <p>(Small 9-man research group with 3 of the original 12 founders)</p>
-                    <p><a href="https://www.researchgate.net/publication/332819889_A_Novel_Deep_Submicron_Bulk_Planar_Sizing_Strategy_For_Low_Energy_Subthreshold_Standard_Cell_Libraries" target="_blank" class="paper-title">Thesis</a></p>
+                    <p>
+                      (Small 9-man research group with 3 of the original 12
+                      founders)
+                    </p>
+                    <p>
+                      <a
+                        href="https://www.researchgate.net/publication/332819889_A_Novel_Deep_Submicron_Bulk_Planar_Sizing_Strategy_For_Low_Energy_Subthreshold_Standard_Cell_Libraries"
+                        target="_blank"
+                        class="paper-title"
+                        >Thesis</a
+                      >
+                    </p>
                     <p class="date">2013 – 2018</p>
                   </div>
 
                   <div class="education-column">
-                    <span class="degree">MEng – Electrical and Electronic Engineering</span>
+                    <span class="degree"
+                      >MEng – Electrical and Electronic Engineering</span
+                    >
                     <p>summa cum laude</p>
                     <p>with first class honours</p>
                     <p class="date">2012 – 2013</p>
                   </div>
 
                   <div class="education-column">
-                    <span class="degree">BEng – Electrical and Electronic Engineering</span>
+                    <span class="degree"
+                      >BEng – Electrical and Electronic Engineering</span
+                    >
                     <p class="date">2009 – 2012</p>
                   </div>
                 </div>
@@ -199,25 +290,49 @@
                 <div class="projects-columns">
                   <div class="project-column">
                     <a href="https://www.bitset.ai/" target="_blank">
-                      <img src="images/bitset.png" alt="Bitset Technologies" class="project-logo">
+                      <img
+                        src="images/bitset.png"
+                        alt="Bitset Technologies"
+                        class="project-logo"
+                      />
                     </a>
-                    <h3><a href="https://www.bitset.ai/" target="_blank">Bitset Technologies</a></h3>
+                    <h3>
+                      <a href="https://www.bitset.ai/" target="_blank"
+                        >Bitset Technologies</a
+                      >
+                    </h3>
                     <p class="role">Founder and CTO</p>
                     <p class="date">Aug 2024 – Jan 2026</p>
                   </div>
                   <div class="project-column">
                     <a href="https://www.literal-labs.ai" target="_blank">
-                      <img src="images/literal-labs.png" alt="Literal Labs" class="project-logo">
+                      <img
+                        src="images/literal-labs.png"
+                        alt="Literal Labs"
+                        class="project-logo"
+                      />
                     </a>
-                    <h3><a href="https://www.literal-labs.ai" target="_blank">Literal Labs</a></h3>
+                    <h3>
+                      <a href="https://www.literal-labs.ai" target="_blank"
+                        >Literal Labs</a
+                      >
+                    </h3>
                     <p class="role">Principal Engineer</p>
-                    <p class="date">Jun 2023 – Jan 2024</p>
+                    <p class="date">Feb 2023 – Jan 2024</p>
                   </div>
                   <div class="project-column">
                     <a href="http://poets-project.org/" target="_blank">
-                      <img src="images/POETS-logo.svg" alt="POETS" class="project-logo">
+                      <img
+                        src="images/POETS-logo.svg"
+                        alt="POETS"
+                        class="project-logo"
+                      />
                     </a>
-                    <h3><a href="http://poets-project.org/" target="_blank">POETS</a></h3>
+                    <h3>
+                      <a href="http://poets-project.org/" target="_blank"
+                        >POETS</a
+                      >
+                    </h3>
                     <p class="role">Research Associate</p>
                     <p class="date">Aug 2019 – May 2023</p>
                   </div>
@@ -234,28 +349,150 @@
               <div class="window-body">
                 <p><strong class="section-title">Publications</strong></p>
                 <ul class="project-list">
-                  <li><span class="bullet">▸</span> <a href="https://arxiv.org/abs/2403.09680" target="_blank" class="paper-title">Pre-Sorted Tsetlin Machine (The Genetic K-Medoid Method)</a><br>
-                    J. Morris, A. Yakovlev, Pre-Print, ISTM (International Symposium on the Tsetlin Machine), 2024</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/375105235_An_Event-Driven_Approach_to_Genotype_Imputation_on_a_Custom_RISC-V_Cluster" target="_blank" class="paper-title">An Event Driven Approach To Genotype Imputation On A RISC-V Cluster</a><br>
-                    J. Morris, A. Rafiev, G. Bragg, M. Vousden, D. B. Thomas, A. Yakovlev, A. D. Brown, IEEE Transactions on Computational Biology and Bioinformatics, 2023</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/366428042_Event-based_high_throughput_computing_A_series_of_case_studies_on_a_massively_parallel_softcore_machine" target="_blank" class="paper-title">Event-based High Throughput Computing: A Series of Case Studies on a Massively Parallel Softcore Machine</a><br>
-                    M. Vousden, J. Morris, G. M. Bragg, J. Beaumont, A. Rafiev, W. Luk, D. Thomas, A. D. Brown, IET Computers & Digital Techniques, 2022</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/362416670_A_Subthreshold_Layout_Strategy_for_Faster_and_Lower_Energy_Complex_Digital_Circuits" target="_blank" class="paper-title">A Subthreshold Layout Strategy for Faster and Lower Energy Complex Digital Circuits</a><br>
-                    J. Morris, P. Prabhat, J. Myers, A. Yakovlev, Journal of Low Power Electronics and Applications 12, no. 3: 43, 2022</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/361462342_An_Alternate_Feedback_Mechanism_for_Tsetlin_Machines_on_Parallel_Architectures" target="_blank" class="paper-title">An Alternate Feedback Mechanism for Tsetlin Machines on Parallel Architectures</a><br>
-                    J. Morris, A. Rafiev, F. Xia, R. Shafik, A. Yakovlev, O. C. Granmo, A. D. Brown, 2022 IEEE International Symposium on Tsetlin Machines, Grimstadt</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/362469851_Visualization_of_Machine_Learning_Dynamics_in_Tsetlin_Machines" target="_blank" class="paper-title">Visualization of Machine Learning Dynamics in Tsetlin Machines</a><br>
-                    A. Rafiev, J. Morris, F. Xia, R. Shafik, A. Yakovlev, O. C. Granmo, A. D. Brown, 2022 IEEE International Symposium on Tsetlin Machines, Grimstadt</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/360053677_Practical_Distributed_Implementation_of_Very_Large_Scale_Petri_Net_Simulations" target="_blank" class="paper-title">Practical Distributed Implementation of Very Large Scale Petri Net Simulations</a><br>
-                    A. Rafiev, J. Morris, F. Xia, A. Yakovlev, M. Naylor, S. Moore, D. B. Thomas, G. M. Bragg, M. Vousden, A. D. Brown, In: Koutny, M., Kordon, F., Moldt, D. (eds) Transactions on Petri Nets and Other Models of Concurrency XVI. Lecture Notes in Computer Science, vol 13220. Springer, Berlin, Heidelberg</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/354111561_Low-Latency_Asynchronous_Logic_Design_for_Inference_at_the_Edge" target="_blank" class="paper-title">Low-Latency Asynchronous Logic Design for Inference at the Edge</a><br>
-                    A. Wheeldon, A. Yakovlev, R. Shafik and J. Morris, Design, Automation & Test in Europe Conference & Exhibition (DATE), 2021, pp. 370-373</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/332161368_Self-timed_minimum_latency_circuits_for_the_internet_of_things" target="_blank" class="paper-title">Self-timed, Minimum Latency Circuits for the Internet of Things</a><br>
-                    A. Wheeldon, J. Morris, D. Sokolov, A. Yakovlev, Integration 2019, 69, 138-146</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/318665805_Unconventional_Layout_Techniques_for_a_High_Performance_Low_Variability_Subthreshold_Standard_Cell_Library" target="_blank" class="paper-title">Unconventional Layout Techniques for a High Performance, Low Variability Subthreshold Standard Cell Library</a><br>
-                    J. Morris, P. Prabhat, J. Myers and A. Yakovlev, 2017 IEEE Computer Society Annual Symposium on VLSI (ISVLSI), Bochum, 2017, pp. 19-24</li>
-                  <li><span class="bullet">▸</span> <a href="https://www.researchgate.net/publication/321111897_Power_proportional_adder_design_for_Internet_of_Things_in_a_65_nm_process" target="_blank" class="paper-title">Power-Proportional Adder Design for Internet of Things in a 65nm Process</a><br>
-                    A. Wheeldon, J. Morris, D. Sokolov and A. Yakovlev, 2017 27th International Symposium on Power and Timing Modeling, Optimization and Simulation (PATMOS), Thessaloniki, 2017, pp. 1-6.</li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://arxiv.org/abs/2403.09680"
+                      target="_blank"
+                      class="paper-title"
+                      >Pre-Sorted Tsetlin Machine (The Genetic K-Medoid
+                      Method)</a
+                    ><br />
+                    J. Morris, A. Yakovlev, Pre-Print, ISTM (International
+                    Symposium on the Tsetlin Machine), 2024
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/375105235_An_Event-Driven_Approach_to_Genotype_Imputation_on_a_Custom_RISC-V_Cluster"
+                      target="_blank"
+                      class="paper-title"
+                      >An Event Driven Approach To Genotype Imputation On A
+                      RISC-V Cluster</a
+                    ><br />
+                    J. Morris, A. Rafiev, G. Bragg, M. Vousden, D. B. Thomas, A.
+                    Yakovlev, A. D. Brown, IEEE Transactions on Computational
+                    Biology and Bioinformatics, 2023
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/366428042_Event-based_high_throughput_computing_A_series_of_case_studies_on_a_massively_parallel_softcore_machine"
+                      target="_blank"
+                      class="paper-title"
+                      >Event-based High Throughput Computing: A Series of Case
+                      Studies on a Massively Parallel Softcore Machine</a
+                    ><br />
+                    M. Vousden, J. Morris, G. M. Bragg, J. Beaumont, A. Rafiev,
+                    W. Luk, D. Thomas, A. D. Brown, IET Computers & Digital
+                    Techniques, 2022
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/362416670_A_Subthreshold_Layout_Strategy_for_Faster_and_Lower_Energy_Complex_Digital_Circuits"
+                      target="_blank"
+                      class="paper-title"
+                      >A Subthreshold Layout Strategy for Faster and Lower
+                      Energy Complex Digital Circuits</a
+                    ><br />
+                    J. Morris, P. Prabhat, J. Myers, A. Yakovlev, Journal of Low
+                    Power Electronics and Applications 12, no. 3: 43, 2022
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/361462342_An_Alternate_Feedback_Mechanism_for_Tsetlin_Machines_on_Parallel_Architectures"
+                      target="_blank"
+                      class="paper-title"
+                      >An Alternate Feedback Mechanism for Tsetlin Machines on
+                      Parallel Architectures</a
+                    ><br />
+                    J. Morris, A. Rafiev, F. Xia, R. Shafik, A. Yakovlev, O. C.
+                    Granmo, A. D. Brown, 2022 IEEE International Symposium on
+                    Tsetlin Machines, Grimstadt
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/362469851_Visualization_of_Machine_Learning_Dynamics_in_Tsetlin_Machines"
+                      target="_blank"
+                      class="paper-title"
+                      >Visualization of Machine Learning Dynamics in Tsetlin
+                      Machines</a
+                    ><br />
+                    A. Rafiev, J. Morris, F. Xia, R. Shafik, A. Yakovlev, O. C.
+                    Granmo, A. D. Brown, 2022 IEEE International Symposium on
+                    Tsetlin Machines, Grimstadt
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/360053677_Practical_Distributed_Implementation_of_Very_Large_Scale_Petri_Net_Simulations"
+                      target="_blank"
+                      class="paper-title"
+                      >Practical Distributed Implementation of Very Large Scale
+                      Petri Net Simulations</a
+                    ><br />
+                    A. Rafiev, J. Morris, F. Xia, A. Yakovlev, M. Naylor, S.
+                    Moore, D. B. Thomas, G. M. Bragg, M. Vousden, A. D. Brown,
+                    In: Koutny, M., Kordon, F., Moldt, D. (eds) Transactions on
+                    Petri Nets and Other Models of Concurrency XVI. Lecture
+                    Notes in Computer Science, vol 13220. Springer, Berlin,
+                    Heidelberg
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/354111561_Low-Latency_Asynchronous_Logic_Design_for_Inference_at_the_Edge"
+                      target="_blank"
+                      class="paper-title"
+                      >Low-Latency Asynchronous Logic Design for Inference at
+                      the Edge</a
+                    ><br />
+                    A. Wheeldon, A. Yakovlev, R. Shafik and J. Morris, Design,
+                    Automation & Test in Europe Conference & Exhibition (DATE),
+                    2021, pp. 370-373
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/332161368_Self-timed_minimum_latency_circuits_for_the_internet_of_things"
+                      target="_blank"
+                      class="paper-title"
+                      >Self-timed, Minimum Latency Circuits for the Internet of
+                      Things</a
+                    ><br />
+                    A. Wheeldon, J. Morris, D. Sokolov, A. Yakovlev, Integration
+                    2019, 69, 138-146
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/318665805_Unconventional_Layout_Techniques_for_a_High_Performance_Low_Variability_Subthreshold_Standard_Cell_Library"
+                      target="_blank"
+                      class="paper-title"
+                      >Unconventional Layout Techniques for a High Performance,
+                      Low Variability Subthreshold Standard Cell Library</a
+                    ><br />
+                    J. Morris, P. Prabhat, J. Myers and A. Yakovlev, 2017 IEEE
+                    Computer Society Annual Symposium on VLSI (ISVLSI), Bochum,
+                    2017, pp. 19-24
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <a
+                      href="https://www.researchgate.net/publication/321111897_Power_proportional_adder_design_for_Internet_of_Things_in_a_65_nm_process"
+                      target="_blank"
+                      class="paper-title"
+                      >Power-Proportional Adder Design for Internet of Things in
+                      a 65nm Process</a
+                    ><br />
+                    A. Wheeldon, J. Morris, D. Sokolov and A. Yakovlev, 2017
+                    27th International Symposium on Power and Timing Modeling,
+                    Optimization and Simulation (PATMOS), Thessaloniki, 2017,
+                    pp. 1-6.
+                  </li>
                 </ul>
               </div>
             </article>
@@ -268,7 +505,7 @@
               </header>
               <div class="window-body">
                 <p><strong class="section-title">AI Skills</strong></p>
-                
+
                 <ul class="project-list">
                   <li><span class="bullet">▸</span> Tensorflow (+lite)</li>
                   <li><span class="bullet">▸</span> PyTorch</li>
@@ -281,7 +518,7 @@
                 <p class="line section-gap"></p>
 
                 <p><strong class="section-title">Software Skills</strong></p>
-                
+
                 <p><span class="course-year">Recent Experience</span></p>
                 <ul class="project-list">
                   <li><span class="bullet">▸</span> Typescript/Javascript</li>
@@ -303,14 +540,16 @@
                 <p class="line section-gap"></p>
 
                 <p><strong class="section-title">Hardware Skills</strong></p>
-                
+
                 <p><span class="course-year">Languages</span></p>
                 <ul class="project-list">
                   <li><span class="bullet">▸</span> Verilog/SystemVerilog</li>
                   <li><span class="bullet">▸</span> VHDL</li>
                 </ul>
 
-                <p><span class="course-year">Cadence Digital ASIC Flow</span></p>
+                <p>
+                  <span class="course-year">Cadence Digital ASIC Flow</span>
+                </p>
                 <ul class="project-list">
                   <li><span class="bullet">▸</span> Xcelium</li>
                   <li><span class="bullet">▸</span> Genus</li>
@@ -331,7 +570,9 @@
                   <li><span class="bullet">▸</span> Spectre</li>
                 </ul>
 
-                <p><span class="course-year">Synopsys Digital ASIC Flow</span></p>
+                <p>
+                  <span class="course-year">Synopsys Digital ASIC Flow</span>
+                </p>
                 <ul class="project-list">
                   <li><span class="bullet">▸</span> VCS</li>
                   <li><span class="bullet">▸</span> Design Compiler</li>
@@ -354,7 +595,9 @@
 
                 <p><span class="course-year">Niche Skills</span></p>
                 <ul class="project-list">
-                  <li><span class="bullet">▸</span> Asynchronous Logic Design</li>
+                  <li>
+                    <span class="bullet">▸</span> Asynchronous Logic Design
+                  </li>
                   <li><span class="bullet">▸</span> Subthreshold Physics</li>
                 </ul>
 
@@ -371,25 +614,135 @@
 
                 <p class="line spacer"></p>
 
-                <p><strong class="section-title">External Development Courses</strong></p>
+                <p>
+                  <strong class="section-title"
+                    >External Development Courses</strong
+                  >
+                </p>
                 <ul class="project-list">
-                  <li><span class="bullet">▸</span> <span class="course-year">2023</span> - Hardware-Efficient Machine Learning | <span class="course-length">2 days</span> | <span class="course-location">IMEC Academy, Leuven</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2019</span> - Comprehensive Digital IC Implementation and Sign-Off (using Cadence Tools) | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2018</span> - Advanced Low Power Digital IC Implementation (using Cadence Tools) | <span class="course-length">3 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2017</span> - Real Time Software Design with UML | <span class="course-length">5 days</span> | <span class="course-location">Feabhas Onsite</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2017</span> - Advanced C Programming | <span class="course-length">5 days</span> | <span class="course-location">Feabhas Onsite</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Introduction to FPGA Design using Xilinx Vivado Tools | <span class="course-length">2 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Introduction to FPGA Design using Altera Quartus II | <span class="course-length">2 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Verilog and System Verilog for Design | <span class="course-length">4 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2015</span> - Comprehensive Digital IC Implementation and Sign-Off (using Synopsys Tools) | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2014</span> - Introduction to Analogue and Mixed Signal IC Design | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2014</span> - Introduction to Technology CAD using Synopsys Sentaurus TCAD Tools | <span class="course-length">3 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2014</span> - Mixed Signal IC Design and Implementation | <span class="course-length">4 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
-                  <li><span class="bullet">▸</span> <span class="course-year">2013</span> - Analog IC Design, Simulation, Layout and Verification | <span class="course-length">5 days</span> | <span class="course-location">Europractice MSC STFC Rutherford Appleton Laboratory</span></li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2023</span> - Hardware-Efficient
+                    Machine Learning |
+                    <span class="course-length">2 days</span> |
+                    <span class="course-location">IMEC Academy, Leuven</span>
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2019</span> - Comprehensive
+                    Digital IC Implementation and Sign-Off (using Cadence Tools)
+                    | <span class="course-length">5 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2018</span> - Advanced Low Power
+                    Digital IC Implementation (using Cadence Tools) |
+                    <span class="course-length">3 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2017</span> - Real Time Software
+                    Design with UML |
+                    <span class="course-length">5 days</span> |
+                    <span class="course-location">Feabhas Onsite</span>
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2017</span> - Advanced C
+                    Programming | <span class="course-length">5 days</span> |
+                    <span class="course-location">Feabhas Onsite</span>
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2015</span> - Introduction to FPGA
+                    Design using Xilinx Vivado Tools |
+                    <span class="course-length">2 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2015</span> - Introduction to FPGA
+                    Design using Altera Quartus II |
+                    <span class="course-length">2 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2015</span> - Verilog and System
+                    Verilog for Design |
+                    <span class="course-length">4 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2015</span> - Comprehensive
+                    Digital IC Implementation and Sign-Off (using Synopsys
+                    Tools) | <span class="course-length">5 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2014</span> - Introduction to
+                    Analogue and Mixed Signal IC Design |
+                    <span class="course-length">5 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2014</span> - Introduction to
+                    Technology CAD using Synopsys Sentaurus TCAD Tools |
+                    <span class="course-length">3 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2014</span> - Mixed Signal IC
+                    Design and Implementation |
+                    <span class="course-length">4 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
+                  <li>
+                    <span class="bullet">▸</span>
+                    <span class="course-year">2013</span> - Analog IC Design,
+                    Simulation, Layout and Verification |
+                    <span class="course-length">5 days</span> |
+                    <span class="course-location"
+                      >Europractice MSC STFC Rutherford Appleton
+                      Laboratory</span
+                    >
+                  </li>
                 </ul>
               </div>
             </article>
-
           </section>
         </main>
       </div>
