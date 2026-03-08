@@ -24,10 +24,7 @@ function showDesktop() {
 
 // Boot sequence – reliable single timeout (CSS animation handles the loading bar)
 function startBootSequence() {
-  console.log("[BOOT] Sequence started – CSS animation will finish in 1500 ms");
-
   setTimeout(() => {
-    console.log("[BOOT] Transitioning to desktop");
     showDesktop();
   }, 1650);
 }

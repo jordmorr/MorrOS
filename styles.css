@@ -82,66 +82,6 @@ body {
   }
 }
 
-.title-line {
-  display: flex;
-  gap: 0.4rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
-.disk-icon {
-  filter: drop-shadow(0 0 4px rgba(0, 255, 127, 0.6));
-}
-
-.line {
-  white-space: pre-wrap;
-}
-
-.line.spacer {
-  margin-top: 0.6rem;
-}
-
-.line.section-gap {
-  margin-top: 1.2rem;
-}
-
-.line.hint {
-  margin-top: 0.8rem;
-  color: #7cffbf;
-}
-
-.value {
-  color: #7cffbf;
-}
-
-.cursor-line {
-  margin-top: auto;
-  display: flex;
-  gap: 0.3rem;
-}
-
-.cursor {
-  width: 0.7em;
-  height: 1.1em;
-  background: #00ff7f;
-  display: inline-block;
-  vertical-align: text-bottom;
-  animation: blink 1s steps(2, start) infinite;
-}
-
-@keyframes blink {
-
-  0%,
-  49% {
-    opacity: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
 .hidden {
   display: none !important;
 }
@@ -378,11 +318,6 @@ body {
   color: #50fa7b;
 }
 
-.company {
-  color: #ff79c6;
-  font-weight: 600;
-}
-
 .paper-title {
   color: #8be9fd;
   font-weight: 600;
@@ -392,7 +327,6 @@ body {
   color: #bd93f9;
 }
 
-.university,
 .location {
   color: #ffb86c;
 }
@@ -664,9 +598,7 @@ body {
     grid-column: auto;
     grid-row: auto;
   }
-}
 
-@media (max-width: 700px) {
   .about-card {
     flex-direction: column;
     gap: 1.8rem;
