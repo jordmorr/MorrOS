@@ -43,7 +43,23 @@
 
         <header class="top-bar">
           <div class="top-bar-left">
-            <span class="logo">MorrOS</span>
+            <div class="menu-dropdown">
+              <button
+                class="logo-button"
+                id="morros-menu-button"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="morros-menu"
+              >
+                MorrOS
+              </button>
+              <div class="dropdown-menu hidden" id="morros-menu" role="menu">
+                <button class="dropdown-item" type="button" role="menuitem">
+                  1.21 Gigawatts
+                </button>
+              </div>
+            </div>
             <span class="top-item" data-window="about-window">About</span>
             <span class="top-item" data-window="education-window"
               >Education</span

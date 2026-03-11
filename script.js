@@ -4,6 +4,8 @@ const clockEl = document.getElementById("top-clock");
 const welcomeModal = document.getElementById("welcome-modal");
 const welcomeOk = document.getElementById("welcome-ok");
 const profileVideo = document.getElementById("profile-video");
+const morrOSMenuButton = document.getElementById("morros-menu-button");
+const morrOSMenu = document.getElementById("morros-menu");
 
 let profileReplayTimeout = null;
 let hasStartedProfileVideo = false;
@@ -108,6 +110,44 @@ document.querySelectorAll(".top-item[data-window]").forEach((item) => {
     }, 80);
   });
 });
+
+function setMorrOSMenuOpen(isOpen) {
+  if (!morrOSMenuButton || !morrOSMenu) return;
+  morrOSMenu.classList.toggle("hidden", !isOpen);
+  morrOSMenuButton.setAttribute("aria-expanded", String(isOpen));
+}
+
+if (morrOSMenuButton && morrOSMenu) {
+  morrOSMenuButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen =
+      morrOSMenuButton.getAttribute("aria-expanded") === "true";
+    setMorrOSMenuOpen(!isOpen);
+  });
+
+  morrOSMenu.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const menuItem = event.target.closest(".dropdown-item");
+    if (menuItem) {
+      setMorrOSMenuOpen(false);
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      !morrOSMenu.contains(event.target) &&
+      !morrOSMenuButton.contains(event.target)
+    ) {
+      setMorrOSMenuOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMorrOSMenuOpen(false);
+    }
+  });
+}
 
 // Close buttons on windows
 document.querySelectorAll("[data-close]").forEach((btn) => {
