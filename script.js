@@ -17,16 +17,27 @@ const PROFILE_REPLAY_DELAY = 15000;
 const GEO_PAGE_URL = "geo.html";
 const TIME_TRAVEL_FALLBACK_MS = 15000;
 const TIME_TRAVEL_FLASH_SWAP_MS = 84;
+const shouldSkipBoot = new URLSearchParams(window.location.search).get(
+  "skipBoot"
+) === "1";
 
 let hasBooted = false; // Prevents re-showing the welcome modal after it has been closed
 let isTimeTraveling = false;
 let isFinishingTimeTravel = false;
 let timeTravelFallbackTimeout = null;
 let timeTravelCompletionTimeout = null;
+let geoPagePreloadPromise = null;
 
 function showDesktop() {
   if (bootScreen) bootScreen.classList.add("hidden");
   if (desktop) desktop.classList.remove("hidden");
+
+  if (shouldSkipBoot) {
+    hasBooted = true;
+    if (welcomeModal) welcomeModal.classList.add("hidden");
+    startProfileVideoWhenReady();
+    return;
+  }
 
   // Show the welcome modal ONLY on the very first boot (never again)
   if (welcomeModal && !hasBooted) {
@@ -37,6 +48,10 @@ function showDesktop() {
 
 // Boot sequence – reliable single timeout (CSS animation handles the loading bar)
 function startBootSequence() {
+  if (shouldSkipBoot) {
+    showDesktop();
+    return;
+  }
   setTimeout(() => {
     showDesktop();
   }, 1650);
@@ -128,6 +143,72 @@ function setMorrOSMenuOpen(isOpen) {
   morrOSMenuButton.setAttribute("aria-expanded", String(isOpen));
 }
 
+function resetTimeTravelState() {
+  if (timeTravelCompletionTimeout) {
+    clearTimeout(timeTravelCompletionTimeout);
+    timeTravelCompletionTimeout = null;
+  }
+  if (timeTravelFallbackTimeout) {
+    clearTimeout(timeTravelFallbackTimeout);
+    timeTravelFallbackTimeout = null;
+  }
+
+  isTimeTraveling = false;
+  isFinishingTimeTravel = false;
+  setMorrOSMenuOpen(false);
+
+  if (desktop) {
+    desktop.classList.remove("time-travel-active");
+    desktop.classList.remove("hidden");
+  }
+
+  if (bootScreen) {
+    bootScreen.classList.add("hidden");
+  }
+
+  if (welcomeModal) {
+    welcomeModal.classList.add("hidden");
+  }
+
+  if (timeTravelOverlay) {
+    timeTravelOverlay.classList.add("hidden");
+    timeTravelOverlay.setAttribute("aria-hidden", "true");
+  }
+
+  if (timeTravelFlash) {
+    timeTravelFlash.classList.remove("active");
+    timeTravelFlash.classList.add("hidden");
+  }
+
+  if (timeTravelVideo) {
+    timeTravelVideo.pause();
+    timeTravelVideo.currentTime = 0;
+  }
+}
+
+function preloadGeoPage() {
+  if (geoPagePreloadPromise) return geoPagePreloadPromise;
+
+  const prefetchLink = document.createElement("link");
+  prefetchLink.rel = "prefetch";
+  prefetchLink.href = GEO_PAGE_URL;
+  prefetchLink.as = "document";
+  document.head.appendChild(prefetchLink);
+
+  geoPagePreloadPromise = fetch(GEO_PAGE_URL, {
+    credentials: "same-origin",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to preload ${GEO_PAGE_URL}`);
+      }
+      return response.text();
+    })
+    .catch(() => null);
+
+  return geoPagePreloadPromise;
+}
+
 function finishTimeTravel() {
   if (isFinishingTimeTravel) return;
   isFinishingTimeTravel = true;
@@ -173,6 +254,7 @@ function startTimeTravelSequence() {
   desktop.classList.add("time-travel-active");
   timeTravelOverlay.classList.remove("hidden");
   timeTravelOverlay.setAttribute("aria-hidden", "false");
+  preloadGeoPage();
 
   if (welcomeModal && !welcomeModal.classList.contains("hidden")) {
     welcomeModal.classList.add("hidden");
@@ -238,6 +320,23 @@ if (timeTravelVideo) {
     triggerTimeTravelFlash();
   });
 }
+
+window.addEventListener("pagehide", () => {
+  resetTimeTravelState();
+});
+
+window.addEventListener("pageshow", (event) => {
+  const navigationEntry =
+    performance.getEntriesByType("navigation")[0];
+  const isHistoryRestore =
+    event.persisted || navigationEntry?.type === "back_forward";
+
+  if (isHistoryRestore) {
+    hasBooted = true;
+    resetTimeTravelState();
+    startProfileVideoWhenReady();
+  }
+});
 
 // Close buttons on windows
 document.querySelectorAll("[data-close]").forEach((btn) => {

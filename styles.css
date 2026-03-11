@@ -23,6 +23,14 @@ body {
   justify-content: center;
 }
 
+html.skip-boot #boot-screen {
+  display: none !important;
+}
+
+html.skip-boot #desktop {
+  display: flex !important;
+}
+
 .screen {
   width: min(900px, 100vw - 2rem);
   height: min(560px, 100vh - 2rem);
