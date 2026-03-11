@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jordan's Cyber Zone</title>
+    <style>
+      body {
+        margin: 0;
+        background: #000000;
+        color: #00ff66;
+        font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+        background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+        background-size: 14px 14px;
+      }
+
+      a {
+        color: #00ffff;
+        text-decoration: underline;
+      }
+
+      .page {
+        width: 900px;
+        margin: 0 auto;
+        padding: 14px;
+        border: 4px ridge #ff00ff;
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      .title {
+        text-align: center;
+        color: #ffff00;
+        font-size: 44px;
+        text-shadow: 2px 2px #ff00ff;
+        margin: 8px 0;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #00ffff;
+        font-size: 18px;
+        margin: 0 0 12px;
+      }
+
+      .blink {
+        animation: blink 0.9s steps(2, start) infinite;
+        color: #ff3b3b;
+        font-weight: bold;
+      }
+
+      @keyframes blink {
+        to {
+          visibility: hidden;
+        }
+      }
+
+      table.layout {
+        width: 100%;
+        border-collapse: collapse;
+        border: 3px outset #00ffff;
+        background: #050505;
+      }
+
+      table.layout td {
+        vertical-align: top;
+        border: 2px solid #444;
+        padding: 10px;
+      }
+
+      .left-rail {
+        width: 220px;
+        background: #070707;
+      }
+
+      .main {
+        background: #000;
+      }
+
+      .counter {
+        text-align: center;
+        margin: 10px auto;
+        color: #ffffff;
+        font-size: 13px;
+      }
+
+      .construction {
+        text-align: center;
+        background: repeating-linear-gradient(
+          45deg,
+          #ffff00,
+          #ffff00 12px,
+          #000 12px,
+          #000 24px
+        );
+        border: 2px solid #ff0000;
+        font-weight: bold;
+        padding: 4px;
+        margin: 8px 0 12px;
+      }
+
+      .construction span {
+        display: inline-block;
+        color: #000;
+        background: #ffff66;
+        border: 1px solid #000;
+        padding: 2px 8px;
+      }
+
+      .panel {
+        border: 2px dashed #ff00ff;
+        margin-bottom: 12px;
+        padding: 8px;
+        background: #0a0a0a;
+      }
+
+      .panel h3 {
+        color: #ffff00;
+        margin: 0 0 8px;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .profile {
+        display: block;
+        max-width: 180px;
+        margin: 0 auto 10px;
+        border: 4px groove #00ffff;
+      }
+
+      .era-icons {
+        text-align: center;
+        margin: 12px 0;
+      }
+
+      .era-icons img {
+        margin: 4px;
+        border: 2px solid #00ffff;
+        background: #111;
+        max-height: 60px;
+      }
+
+      .icq-white {
+        background: #fff !important;
+      }
+
+      .bands {
+        text-align: center;
+      }
+
+      .bands img {
+        max-width: 170px;
+        max-height: 90px;
+        margin: 6px;
+        border: 2px solid #666;
+        background: #000;
+        padding: 3px;
+      }
+
+      .shout {
+        color: #ff8800;
+        font-size: 20px;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .webring {
+        text-align: center;
+        color: #ffffff;
+        border: 2px dotted #00ff66;
+        padding: 8px;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      .quick-links {
+        text-align: center;
+        margin-top: 10px;
+        border: 2px dotted #ff00ff;
+        padding: 8px;
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .quick-links a {
+        margin: 0 4px;
+        white-space: nowrap;
+      }
+
+      .guestbook-box {
+        text-align: center;
+        border: 2px dashed #ffff00;
+        padding: 8px;
+        margin: 10px 0;
+        color: #fff;
+      }
+
+      .counter-wrap {
+        text-align: center;
+        margin: 14px auto 4px;
+        color: #fff;
+      }
+
+      .digit {
+        display: inline-block;
+        width: 18px;
+        margin: 0 1px;
+        padding: 3px 0;
+        background: #111;
+        border: 1px solid #00ffff;
+        color: #00ff66;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      .footer {
+        margin-top: 16px;
+        padding-top: 10px;
+        border-top: 3px double #00ffff;
+        text-align: center;
+      }
+
+      .badges img {
+        width: 88px;
+        height: 31px;
+        margin: 2px;
+        border: 1px solid #333;
+        image-rendering: pixelated;
+      }
+
+      .small {
+        font-size: 12px;
+        color: #cccccc;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 950px) {
+        .page {
+          width: auto;
+          margin: 8px;
+        }
+
+        table.layout,
+        table.layout tr,
+        table.layout td {
+          display: block;
+          width: auto;
+        }
+
+        .left-rail {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <marquee behavior="alternate" scrollamount="8">
+        <span class="blink">!!! WELCOME TO JORDAN'S CYBER ZONE !!!</span>
+      </marquee>
+
+      <h1 class="title">Jordan's Homepage</h1>
+      <p class="subtitle">Best viewed with Internet Explorer @ 800x600</p>
+      <div class="construction">
+        <span>UNDER CONSTRUCTION - LAST UPDATED: 03/07/1999 - UNDER CONSTRUCTION</span>
+      </div>
+
+      <table class="layout">
+        <tr>
+          <td class="left-rail">
+            <div class="panel">
+              <h3>About Me</h3>
+              <img
+                class="profile"
+                src="images/young.png"
+                alt="Young photo of Jordan"
+              />
+              <font color="#00ff66" size="3">
+                Yo! I'm Jordan, hacking my way through high school, clogging up
+                landlines with my 33.6k dial up modem, and trying to make the
+                most awesome homepage on the web.
+              </font>
+            </div>
+
+            <div class="panel">
+              <h3>Now Playing</h3>
+              <p>
+                <font color="#ff66ff"
+                  >Winamp + loud guitars + zero homework motivation.</font
+                >
+              </p>
+              <p>
+                <font color="#00ffff">Current mission:</font> build Java
+                applets, chat on ICQ, and tweak this site at 2AM.
+              </p>
+            </div>
+
+            <div class="webring">
+              [ Prev ] [ Random ] [ Next ]<br />
+              Jordan's Geek Ring #1337
+            </div>
+
+            <div class="quick-links">
+              <a href="#">Sign My Guestbook</a> |
+              <a href="#">View Guestbook</a> |
+              <a href="#">Email Me</a>
+            </div>
+          </td>
+
+          <td class="main">
+            <div class="shout">
+              <marquee scrollamount="5" direction="left">
+                High School Hacker | Punk Rock Fan | LAN Party Champion | HTML
+                Wizard in Training
+              </marquee>
+            </div>
+
+            <div class="panel">
+              <h3>Cyber Diary</h3>
+              <p>
+                When I'm not in school learning Visual Basic, networking, and
+                database stuff, I'm usually burning mix CDs, trading weird
+                software tips, and hanging out in computer rooms that smell like
+                warm CRT monitors. If you found this page, sign my guestbook and
+                send me your homepage URL.
+              </p>
+              <p>
+                This site is my little corner of the web where I post band
+                logos, random thoughts, and whatever cool internet stuff I
+                discover between classes.
+              </p>
+              <p>
+                <b><font color="#ffff00">Fun Fact:</font></b
+                ><br />
+                The Cult of the Dead Cow has never owned me!
+              </p>
+              <p>
+                <font color="#ff66ff"
+                  >Stealing your girl's heart faster than I reverted your
+                  Hotmail account.</font
+                >
+              </p>
+              <div class="era-icons">
+                <img src="images/other/winamp.gif" alt="Winamp logo" />
+                <img
+                  class="icq-white"
+                  src="images/other/icq.gif"
+                  alt="ICQ logo"
+                />
+                <img src="images/other/napster.gif" alt="Napster logo" />
+              </div>
+            </div>
+
+            <div class="guestbook-box">
+              <span class="blink">NEW:</span> I just joined 3 more webrings and
+              uploaded fresh band logos.<br />
+              Drop your homepage link in my guestbook so I can add you to my
+              shoutout list.
+            </div>
+
+            <div class="panel">
+              <h3>Favorite Bands</h3>
+              <div class="bands">
+                <img src="images/bands/blink-182.png" alt="blink-182 logo" />
+                <img
+                  src="images/bands/foo_fighters.png"
+                  alt="Foo Fighters logo"
+                />
+                <img
+                  src="images/bands/red_hot_chili_peppers.jpg"
+                  alt="Red Hot Chili Peppers logo"
+                />
+                <img src="images/bands/weezer.png" alt="Weezer logo" />
+                <img
+                  src="images/bands/rocket_from_the_crypt.png"
+                  alt="Rocket from the Crypt logo"
+                />
+                <img src="images/bands/nofx.png" alt="NOFX logo" />
+                <img src="images/bands/bodyjar.png" alt="Bodyjar logo" />
+                <img src="images/bands/deftones.png" alt="Deftones logo" />
+                <img src="images/bands/sum-41.jpg" alt="Sum 41 logo" />
+                <img
+                  src="images/bands/linkin_park.png"
+                  alt="Linkin Park logo"
+                />
+                <img
+                  src="images/bands/offspring.png"
+                  alt="The Offspring logo"
+                />
+                <img
+                  src="images/bands/less-than-jake.png"
+                  alt="Less Than Jake logo"
+                />
+                <img
+                  src="images/bands/limp_bizkit.jpg"
+                  alt="Limp Bizkit logo"
+                />
+                <img src="images/bands/feeder.png" alt="Feeder logo" />
+                <img
+                  src="images/bands/millencolin.png"
+                  alt="Millencolin logo"
+                />
+                <img src="images/bands/nirvana.png" alt="Nirvana logo" />
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="counter-wrap">
+        You are visitor #
+        <span class="digit">0</span><span class="digit">0</span
+        ><span class="digit">4</span><span class="digit">2</span
+        ><span class="digit">6</span><span class="digit">9</span>
+        since 01/03/1999
+      </div>
+      <div class="counter">
+        <span class="blink">No bots allowed! Real humans only!</span>
+      </div>
+
+      <div class="footer">
+        <div class="badges">
+          <img src="images/88_31/javanow_88_31.gif" alt="Java Now 88x31" />
+          <img src="images/88_31/hotmail_88_31.gif" alt="Hotmail 88x31" />
+          <img src="images/88_31/aimlink_88_31.gif" alt="AIM Link 88x31" />
+          <img src="images/88_31/amiga_88_31.gif" alt="Amiga 88x31" />
+          <img
+            src="images/88_31/amd_powered_88_31.gif"
+            alt="AMD Powered 88x31"
+          />
+          <img
+            src="images/88_31/internet-explorer_88_31.gif"
+            alt="Internet Explorer 88x31"
+          />
+          <img src="images/88_31/geocities_88_31.gif" alt="GeoCities 88x31" />
+          <img
+            src="images/88_31/adobe_sw_88_31.gif"
+            alt="Adobe Shockwave 88x31"
+          />
+          <img
+            src="images/88_31/adobe_flash_88_31.gif"
+            alt="Adobe Flash 88x31"
+          />
+          <img src="images/88_31/winrar4_88_31.gif" alt="WinRAR 88x31" />
+          <img
+            src="images/88_31/real-player_88_31.gif"
+            alt="RealPlayer 88x31"
+          />
+        </div>
+        <div class="small">
+          Copyright 1999 Jordan's Cyber Zone. Under construction forever.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

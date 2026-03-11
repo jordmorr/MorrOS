@@ -6,12 +6,23 @@ const welcomeOk = document.getElementById("welcome-ok");
 const profileVideo = document.getElementById("profile-video");
 const morrOSMenuButton = document.getElementById("morros-menu-button");
 const morrOSMenu = document.getElementById("morros-menu");
+const timeTravelTrigger = document.getElementById("time-travel-trigger");
+const timeTravelOverlay = document.getElementById("time-travel-overlay");
+const timeTravelVideo = document.getElementById("time-travel-video");
+const timeTravelFlash = document.getElementById("time-travel-flash");
 
 let profileReplayTimeout = null;
 let hasStartedProfileVideo = false;
 const PROFILE_REPLAY_DELAY = 15000;
+const GEO_PAGE_URL = "geo.html";
+const TIME_TRAVEL_FALLBACK_MS = 15000;
+const TIME_TRAVEL_FLASH_SWAP_MS = 84;
 
 let hasBooted = false; // Prevents re-showing the welcome modal after it has been closed
+let isTimeTraveling = false;
+let isFinishingTimeTravel = false;
+let timeTravelFallbackTimeout = null;
+let timeTravelCompletionTimeout = null;
 
 function showDesktop() {
   if (bootScreen) bootScreen.classList.add("hidden");
@@ -117,6 +128,73 @@ function setMorrOSMenuOpen(isOpen) {
   morrOSMenuButton.setAttribute("aria-expanded", String(isOpen));
 }
 
+function finishTimeTravel() {
+  if (isFinishingTimeTravel) return;
+  isFinishingTimeTravel = true;
+  if (timeTravelCompletionTimeout) {
+    clearTimeout(timeTravelCompletionTimeout);
+    timeTravelCompletionTimeout = null;
+  }
+  if (timeTravelFallbackTimeout) {
+    clearTimeout(timeTravelFallbackTimeout);
+    timeTravelFallbackTimeout = null;
+  }
+  window.location.href = GEO_PAGE_URL;
+}
+
+function triggerTimeTravelFlash() {
+  if (isFinishingTimeTravel) return;
+  if (!timeTravelFlash) {
+    finishTimeTravel();
+    return;
+  }
+
+  timeTravelFlash.classList.remove("hidden", "active");
+  void timeTravelFlash.offsetWidth;
+  timeTravelFlash.classList.add("active");
+
+  timeTravelCompletionTimeout = setTimeout(() => {
+    finishTimeTravel();
+  }, TIME_TRAVEL_FLASH_SWAP_MS);
+}
+
+function startTimeTravelSequence() {
+  if (
+    isTimeTraveling ||
+    !timeTravelOverlay ||
+    !timeTravelVideo ||
+    !desktop
+  ) {
+    return;
+  }
+
+  isTimeTraveling = true;
+  setMorrOSMenuOpen(false);
+  desktop.classList.add("time-travel-active");
+  timeTravelOverlay.classList.remove("hidden");
+  timeTravelOverlay.setAttribute("aria-hidden", "false");
+
+  if (welcomeModal && !welcomeModal.classList.contains("hidden")) {
+    welcomeModal.classList.add("hidden");
+  }
+
+  if (profileVideo) {
+    profileVideo.pause();
+  }
+
+  timeTravelVideo.currentTime = 0;
+  const playPromise = timeTravelVideo.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(() => {
+      triggerTimeTravelFlash();
+    });
+  }
+
+  timeTravelFallbackTimeout = setTimeout(() => {
+    triggerTimeTravelFlash();
+  }, TIME_TRAVEL_FALLBACK_MS);
+}
+
 if (morrOSMenuButton && morrOSMenu) {
   morrOSMenuButton.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -146,6 +224,18 @@ if (morrOSMenuButton && morrOSMenu) {
     if (event.key === "Escape") {
       setMorrOSMenuOpen(false);
     }
+  });
+}
+
+if (timeTravelTrigger) {
+  timeTravelTrigger.addEventListener("click", () => {
+    startTimeTravelSequence();
+  });
+}
+
+if (timeTravelVideo) {
+  timeTravelVideo.addEventListener("ended", () => {
+    triggerTimeTravelFlash();
   });
 }
 

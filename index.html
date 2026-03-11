@@ -55,7 +55,12 @@
                 MorrOS
               </button>
               <div class="dropdown-menu hidden" id="morros-menu" role="menu">
-                <button class="dropdown-item" type="button" role="menuitem">
+                <button
+                  class="dropdown-item"
+                  id="time-travel-trigger"
+                  type="button"
+                  role="menuitem"
+                >
                   1.21 Gigawatts
                 </button>
               </div>
@@ -784,6 +789,19 @@
         </main>
       </div>
     </div>
+
+    <div class="time-travel-overlay hidden" id="time-travel-overlay" aria-hidden="true">
+      <video
+        class="time-travel-video"
+        id="time-travel-video"
+        preload="auto"
+        playsinline
+      >
+        <source src="images/flux_capacitor.mp4" type="video/mp4" />
+      </video>
+      <div class="time-travel-scanlines"></div>
+    </div>
+    <div class="time-travel-flash hidden" id="time-travel-flash" aria-hidden="true"></div>
 
     <script src="script.js"></script>
   </body>
