@@ -2,6 +2,8 @@
 
 Interactive single-page "operating system" that showcases the career and work of polymath **Dr. Jordan Morris**.
 
+Live version can be found here: (https://jordanmorris.co.uk)
+
 ## About Dr. Morris
 
 - AI researcher, ASIC designer, electronic engineer, software and DevOps practitioner with 25+ years of programming experience across C/C++, Python, TypeScript, and more.
