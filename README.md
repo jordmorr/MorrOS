@@ -20,7 +20,7 @@ Live version can be found here: (https://jordanmorris.co.uk)
 
 ## Career Highlights
 
-- **Bitset Technologies** – Founder & CTO (Aug 2024 – Jan 2026).
+- **Bitset Technologies** – Founder & CTO (Aug 2024 – Mar 2026).
 - **Literal Labs** – Principal Engineer (Feb 2023 – Jan 2024).
 - **POETS Project** – Research Associate (Aug 2019 – May 2023).
 
