@@ -674,7 +674,7 @@ html.skip-boot #desktop {
 }
 
 .project-column {
-  flex: 1;
+  flex: 1 1 calc((100% - 3.5rem) / 3);
   min-width: 240px;
   background: rgba(0, 40, 24, 0.35);
   border: 1px solid rgba(0, 255, 127, 0.25);
@@ -686,10 +686,26 @@ html.skip-boot #desktop {
 .project-column img.project-logo {
   width: 100%;
   height: auto;
+  aspect-ratio: 596 / 260;
+  /* Crop empty canvas vertically while preserving the artwork's width. */
+  object-fit: cover;
+  background: #000;
   border-radius: 4px;
   border: 1px solid rgba(0, 255, 127, 0.4);
   box-shadow: 0 0 10px rgba(0, 255, 127, 0.2);
   margin-bottom: 1rem;
+}
+
+.project-column img.project-logo-wide {
+  object-fit: contain;
+}
+
+.project-column img.project-logo-poets {
+  object-position: center 25%;
+}
+
+.project-column img.project-logo-padded {
+  padding: 6%;
 }
 
 .project-column h3 {
