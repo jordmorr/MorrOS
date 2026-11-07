@@ -1,8 +1,6 @@
 const bootScreen = document.getElementById("boot-screen");
 const desktop = document.getElementById("desktop");
 const clockEl = document.getElementById("top-clock");
-const welcomeModal = document.getElementById("welcome-modal");
-const welcomeOk = document.getElementById("welcome-ok");
 const profileVideo = document.getElementById("profile-video");
 const morrOSMenuButton = document.getElementById("morros-menu-button");
 const morrOSMenu = document.getElementById("morros-menu");
@@ -21,7 +19,6 @@ const shouldSkipBoot = new URLSearchParams(window.location.search).get(
   "skipBoot"
 ) === "1";
 
-let hasBooted = false; // Prevents re-showing the welcome modal after it has been closed
 let isTimeTraveling = false;
 let isFinishingTimeTravel = false;
 let timeTravelFallbackTimeout = null;
@@ -31,22 +28,7 @@ let geoPagePreloadPromise = null;
 function showDesktop() {
   if (bootScreen) bootScreen.classList.add("hidden");
   if (desktop) desktop.classList.remove("hidden");
-
-  if (shouldSkipBoot) {
-    hasBooted = true;
-    if (welcomeModal) welcomeModal.classList.add("hidden");
-    startProfileVideoWhenReady();
-    return;
-  }
-
-  // Show the welcome modal ONLY on the very first boot (never again)
-  if (welcomeModal && !hasBooted) {
-    welcomeModal.classList.remove("hidden");
-    hasBooted = true;
-    welcomeOk?.focus({ preventScroll: true });
-  } else {
-    startProfileVideoWhenReady();
-  }
+  startProfileVideoWhenReady();
 }
 
 // First-visit assembly animation; the normal desktop is also the fallback.
@@ -56,10 +38,7 @@ function startBootSequence() {
     return;
   }
   if (window.MorrOSBoot) {
-    window.MorrOSBoot.start({ onComplete: ({ played }) => {
-      if (!played) hasBooted = true;
-      showDesktop();
-    } });
+    window.MorrOSBoot.start({ onComplete: showDesktop });
   } else {
     document.documentElement.classList.remove("boot-pending");
     showDesktop();
@@ -172,10 +151,6 @@ function resetTimeTravelState() {
     bootScreen.classList.add("hidden");
   }
 
-  if (welcomeModal) {
-    welcomeModal.classList.add("hidden");
-  }
-
   if (timeTravelOverlay) {
     timeTravelOverlay.classList.add("hidden");
     timeTravelOverlay.setAttribute("aria-hidden", "true");
@@ -262,10 +237,6 @@ function startTimeTravelSequence() {
   timeTravelOverlay.setAttribute("aria-hidden", "false");
   preloadGeoPage();
 
-  if (welcomeModal && !welcomeModal.classList.contains("hidden")) {
-    welcomeModal.classList.add("hidden");
-  }
-
   if (profileVideo) {
     profileVideo.pause();
   }
@@ -328,7 +299,6 @@ document.getElementById("boot-replay")?.addEventListener("click", () => {
     profileReplayTimeout = null;
   }
   window.MorrOSBoot?.start({ replay: true, onComplete: () => {
-    hasBooted = true;
     showDesktop();
     // Replay may have interrupted either playback or the pause between loops.
     playProfileVideoFromStart();
@@ -355,7 +325,6 @@ window.addEventListener("pageshow", (event) => {
 
   if (isHistoryRestore) {
     window.MorrOSBoot?.cancel();
-    hasBooted = true;
     resetTimeTravelState();
     startProfileVideoWhenReady();
   }
@@ -381,14 +350,6 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
-
-// Welcome modal close
-if (welcomeOk && welcomeModal) {
-  welcomeOk.addEventListener("click", () => {
-    welcomeModal.classList.add("hidden");
-    startProfileVideoWhenReady();
-  });
-}
 
 // Populate the clock before the intro measures the stacked mobile navigation.
 startBootSequence();

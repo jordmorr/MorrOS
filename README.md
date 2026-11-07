@@ -50,9 +50,16 @@ Live version can be found here: (https://jordanmorris.co.uk)
 
 This is a static site—open `index.html` in any modern browser, or serve the folder via a simple HTTP server (e.g., `python -m http.server`) to preview locally.
 
+The first visit plays an eight-second desktop assembly animation, building the visible page from top to bottom and then placing the shortcut icons from left to right. Cursors appear as placements begin and retire when finished, so their number follows the work. They draw dashed selection boxes, and their tooltips name each element only while it is being constructed. Use **Skip intro** or Escape to finish immediately, or **MorrOS → Reboot** to watch it again. Reduced-motion preferences bypass the animation. Completion is remembered in local storage when available.
+
+Append `?boot=1` to preview the intro on every reload, or `?skipBoot=1` to go straight to the desktop. The page content remains available when JavaScript is disabled, and the desktop is revealed if the animation script fails to load.
+
+When deploying, upload `boot.css` and `boot.js` alongside the updated `index.html` and `script.js`.
+
 ## Repository Contents
 
 - `index.html` – MorrOS desktop markup and content.
 - `styles.css` – Retro terminal-inspired styling with responsive tweaks.
-- `script.js` – Boot sequence, window management, welcome modal logic, live clock, and video playback control.
+- `script.js` – Boot sequence, window management, live clock, and video playback control.
+- `boot.js` and `boot.css` – Simulated worker cursors, staged desktop assembly, and startup controls.
 - `images/` – Profile media and partner logos.

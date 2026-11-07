@@ -295,7 +295,6 @@
     session = run;
     try {
       desktop.classList.remove("hidden");
-      document.getElementById("welcome-modal")?.classList.add("hidden");
       video?.pause();
       desktop.inert = true;
       root.classList.add("boot-building");
