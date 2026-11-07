@@ -1,0 +1,190 @@
+/* Startup is a temporary presentation layer over the real desktop. */
+html.boot-pending #desktop {
+  visibility: hidden;
+}
+
+.agent-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.agent-boot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 127, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 127, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.boot-building:not(.boot-frame-ready) .desktop-inner {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.boot-building .windows-area {
+  overflow-y: hidden;
+}
+
+.boot-building .boot-piece-pending {
+  opacity: 0 !important;
+}
+
+.boot-effects,
+.boot-traces {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.boot-trace {
+  fill: rgba(0, 255, 127, 0.045);
+  stroke-width: 1;
+  stroke-dasharray: 5 4;
+  vector-effect: non-scaling-stroke;
+  transform-origin: 0 0;
+}
+
+.boot-handle {
+  fill: #00170e;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transform-origin: 0 0;
+}
+
+.boot-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--agent-color);
+  will-change: transform;
+  filter: drop-shadow(0 2px 3px #000);
+}
+
+.boot-cursor svg {
+  display: block;
+  width: 22px;
+  height: 28px;
+  overflow: visible;
+  transform-origin: 2px 1px;
+}
+
+.boot-cursor-label {
+  opacity: 0;
+  position: absolute;
+  top: 24px;
+  left: 14px;
+  padding: 4px 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  background: #00170e;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  max-width: min(220px, calc(100vw - 48px));
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.boot-hud {
+  position: absolute;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 50%;
+  width: min(520px, calc(100% - 28px));
+  padding: 14px 18px 10px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(0, 255, 127, 0.6);
+  border-radius: 5px;
+  background: rgba(0, 13, 8, 0.97);
+  box-shadow: 0 0 36px #000, 0 0 18px rgba(0, 255, 127, 0.1);
+  color: #c0ffe0;
+  pointer-events: auto;
+}
+
+.boot-hud-heading,
+.boot-hud-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.boot-wordmark {
+  color: #00ff7f;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.boot-caption {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: #70b995;
+}
+
+.boot-blink {
+  animation: bootCaret 1s steps(2, jump-none) infinite;
+}
+
+#boot-status {
+  margin: 9px 0 12px;
+  font-size: 12px;
+}
+
+.boot-progress {
+  height: 2px;
+  background: #123c27;
+}
+
+#boot-progress-fill {
+  height: 100%;
+  width: 100%;
+  background: #00ff7f;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.boot-hud-footer {
+  margin-top: 7px;
+  font-size: 10px;
+  color: #70b995;
+}
+
+#boot-skip {
+  padding: 8px 0 8px 12px;
+  border: 0;
+  background: transparent;
+  color: #c0ffe0;
+  font: inherit;
+  cursor: pointer;
+}
+
+#boot-skip:hover,
+#boot-skip:focus-visible {
+  color: #00ff7f;
+  outline: 1px solid #00ff7f;
+  outline-offset: 3px;
+}
+
+@keyframes bootCaret {
+  to { opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .boot-cursor svg { width: 18px; height: 23px; }
+  .boot-cursor-label { font-size: 8px; padding: 3px 5px; top: 20px; left: 10px; }
+  .boot-hud { padding: 12px 14px 6px; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .boot-caption { font-size: 8px; letter-spacing: 0.07em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-blink { animation: none; }
+}

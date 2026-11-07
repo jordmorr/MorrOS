@@ -43,26 +43,32 @@ function showDesktop() {
   if (welcomeModal && !hasBooted) {
     welcomeModal.classList.remove("hidden");
     hasBooted = true;
+    welcomeOk?.focus({ preventScroll: true });
+  } else {
+    startProfileVideoWhenReady();
   }
 }
 
-// Boot sequence – reliable single timeout (CSS animation handles the loading bar)
+// First-visit assembly animation; the normal desktop is also the fallback.
 function startBootSequence() {
   if (shouldSkipBoot) {
     showDesktop();
     return;
   }
-  setTimeout(() => {
+  if (window.MorrOSBoot) {
+    window.MorrOSBoot.start({ onComplete: ({ played }) => {
+      if (!played) hasBooted = true;
+      showDesktop();
+    } });
+  } else {
+    document.documentElement.classList.remove("boot-pending");
     showDesktop();
-  }, 1650);
+  }
 }
-
-// Start boot sequence immediately (script is at the bottom of index.html)
-startBootSequence();
 
 // Profile video behavior
 function playProfileVideoFromStart() {
-  if (!profileVideo) return;
+  if (!profileVideo || document.documentElement.classList.contains("boot-building")) return;
   if (profileReplayTimeout) {
     clearTimeout(profileReplayTimeout);
     profileReplayTimeout = null;
@@ -315,6 +321,21 @@ if (timeTravelTrigger) {
   });
 }
 
+document.getElementById("boot-replay")?.addEventListener("click", () => {
+  setMorrOSMenuOpen(false);
+  if (profileReplayTimeout) {
+    clearTimeout(profileReplayTimeout);
+    profileReplayTimeout = null;
+  }
+  window.MorrOSBoot?.start({ replay: true, onComplete: () => {
+    hasBooted = true;
+    showDesktop();
+    // Replay may have interrupted either playback or the pause between loops.
+    playProfileVideoFromStart();
+    morrOSMenuButton?.focus({ preventScroll: true });
+  } });
+});
+
 if (timeTravelVideo) {
   timeTravelVideo.addEventListener("ended", () => {
     triggerTimeTravelFlash();
@@ -322,6 +343,7 @@ if (timeTravelVideo) {
 }
 
 window.addEventListener("pagehide", () => {
+  window.MorrOSBoot?.cancel();
   resetTimeTravelState();
 });
 
@@ -332,6 +354,7 @@ window.addEventListener("pageshow", (event) => {
     event.persisted || navigationEntry?.type === "back_forward";
 
   if (isHistoryRestore) {
+    window.MorrOSBoot?.cancel();
     hasBooted = true;
     resetTimeTravelState();
     startProfileVideoWhenReady();
@@ -366,3 +389,6 @@ if (welcomeOk && welcomeModal) {
     startProfileVideoWhenReady();
   });
 }
+
+// Populate the clock before the intro measures the stacked mobile navigation.
+startBootSequence();

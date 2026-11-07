@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MorrOS</title>
     <script>
-      if (new URLSearchParams(window.location.search).get("skipBoot") === "1") {
+      const bootParams = new URLSearchParams(window.location.search);
+      if (bootParams.get("skipBoot") === "1") {
         document.documentElement.classList.add("skip-boot");
+      } else if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        let bootSeen = false;
+        try {
+          bootSeen = localStorage.getItem("morros.boot.v1") === "complete";
+        } catch {}
+        if (!bootSeen || bootParams.get("boot") === "1") {
+          document.documentElement.classList.add("boot-pending");
+          // Reveal the page even if a startup script fails to load.
+          window.morrosBootFallback = setTimeout(() => {
+            document.documentElement.classList.remove("boot-pending");
+          }, 10000);
+        }
       }
     </script>
     <link
@@ -17,20 +30,28 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="boot.css" />
   </head>
   <body>
     <!-- Boot screen -->
-    <div class="screen" id="boot-screen">
-      <div class="screen-inner boot-inner">
-        <div class="boot-title">Booting into MorrOS</div>
-        <div class="boot-bar-outer">
-          <div class="boot-bar-inner"></div>
+    <div class="agent-boot hidden" id="boot-screen" role="region" aria-label="MorrOS startup">
+      <div class="boot-effects" id="boot-effects" aria-hidden="true"></div>
+      <div class="boot-hud">
+        <div class="boot-hud-heading">
+          <span class="boot-wordmark">MorrOS<span class="boot-blink">_</span></span>
+          <span class="boot-caption">ASSEMBLING DESKTOP</span>
+        </div>
+        <p id="boot-status">Preparing desktop…</p>
+        <div class="boot-progress" aria-hidden="true"><div id="boot-progress-fill"></div></div>
+        <div class="boot-hud-footer">
+          <span id="boot-counter">Preparing elements</span>
+          <button id="boot-skip" type="button">Skip intro <span aria-hidden="true">↵</span></button>
         </div>
       </div>
     </div>
 
     <!-- Desktop / “OS” -->
-    <div class="desktop hidden" id="desktop">
+    <div class="desktop" id="desktop">
       <div class="desktop-inner">
         <div class="modal-overlay hidden" id="welcome-modal">
           <article class="window modal-window">
@@ -60,6 +81,14 @@
                 MorrOS
               </button>
               <div class="dropdown-menu hidden" id="morros-menu" role="menu">
+                <button
+                  class="dropdown-item"
+                  id="boot-replay"
+                  type="button"
+                  role="menuitem"
+                >
+                  Reboot
+                </button>
                 <button
                   class="dropdown-item"
                   id="time-travel-trigger"
@@ -200,8 +229,8 @@
                   </div>
 
                   <div class="about-content">
-                    <p class="name-title"><strong>Dr. Jordan Morris</strong></p>
-                    <p>
+                    <p class="name-title" data-boot-label="Name"><strong>Dr. Jordan Morris</strong></p>
+                    <p data-boot-label="Professional roles">
                       <span class="highlight-role">AI Guru</span> |
                       <span class="highlight-role">ASIC Designer</span> |
                       <span class="highlight-role">Electronic Engineer</span> |
@@ -210,13 +239,13 @@
                       <span class="highlight-role">Full Stack</span>
                     </p>
 
-                    <p>
+                    <p data-boot-label="Location">
                       <span class="location">Bay Area, California, USA</span> •
                       Dual-National (British/Irish) with US Green Card (EB-1A
                       Visa)
                     </p>
 
-                    <p>
+                    <p data-boot-label="Engineering experience">
                       25+ years programming experience in various languages
                       (C/C++, Python, TypeScript) and 13+ years ASIC hardware
                       design (Cadence &amp; Synopsys flows, Calibre) mainly
@@ -225,21 +254,21 @@
                       physical modelling.
                     </p>
 
-                    <p>
+                    <p data-boot-label="AI research">
                       8+ years experience working in AI research, principally
                       focused on novel bitwise AI architectures.
                     </p>
 
-                    <p>
+                    <p data-boot-label="Web development">
                       I started web development by learning HTML using
                       Dreamweaver, LAMP stacks, Flash and ActionScript in my
                       teens and have remained up to date with the topic ever
                       since.
                     </p>
 
-                    <p>Currently in love with Agentic AI.</p>
+                    <p data-boot-label="Current interests">Currently in love with Agentic AI.</p>
 
-                    <p>
+                    <p data-boot-label="Contact details">
                       <strong>Contact:</strong>
                       <a href="mailto:jordan@jordanmorris.co.uk">
                         jordan@jordanmorris.co.uk
@@ -856,6 +885,7 @@
     </div>
     <div class="time-travel-flash hidden" id="time-travel-flash" aria-hidden="true"></div>
 
+    <script src="boot.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
